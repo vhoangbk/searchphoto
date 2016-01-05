@@ -14,7 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ShowPhotoViewController.h"
 
-@interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionImage;
 @property (nonatomic, strong) NSMutableArray *images;
@@ -24,6 +24,7 @@
 
 @implementation ResultViewController
 
+#pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -46,6 +47,7 @@
     self.title = [NSString stringWithFormat:@"Search: %@", self.strSearch];
 }
 
+#pragma mark - private method
 - (id<ImageSearching>)activeSearchClient
 {
     NSString *searchProviderString = [[NSUserDefaults standardUserDefaults] stringForKey:@"search_provider"];
@@ -94,6 +96,7 @@
     }];
 }
 
+#pragma mark - UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AMAImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageViewCellIdentity"
                                                                        forIndexPath:indexPath];
@@ -104,9 +107,9 @@
     [cell.imageView setImageWithURL:imageRecord.thumbnailURL];
     
     // Check if this has been the last item, if so start loading more images...
-//    if (indexPath.row == [self.images count] - 1) {
-//        [self loadImagesWithOffset:(int)[self.images count]];
-//    };
+    if (indexPath.row == [self.images count] - 1) {
+        [self loadImagesWithOffset:(int)[self.images count]];
+    };
     
     return cell;
 }
@@ -119,6 +122,7 @@
     return [self.images count];
 }
 
+#pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
@@ -131,6 +135,14 @@
     
     [self.navigationController pushViewController:showVC animated:YES];
     
+}
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;{
+    
+    CGFloat w = [UIScreen mainScreen].bounds.size.width;
+    CGFloat size = (w-30)/2.0;
+    return CGSizeMake(size, size);
 }
 
 

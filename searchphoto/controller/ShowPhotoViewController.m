@@ -32,9 +32,9 @@
 - (IBAction)createAlbum:(id)sender {
     NSLog(@"[ShowPhotoViewController] createAlbum()");
     
-  
-    
-//    [pngData writeToFile:filePath atomically:YES]; //Write the file
+    NSString *nameAlbum = [Utils createRandomName];
+    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+    [[NSFileManager defaultManager] createDirectoryAtPath:[path stringByAppendingPathComponent:nameAlbum] withIntermediateDirectories:YES attributes:nil error:NULL];
 }
 - (IBAction)saveImage:(id)sender {
     NSLog(@"[ShowPhotoViewController] saveImage() %@", self.urlImage);
