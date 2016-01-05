@@ -20,9 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
-    self.title = @"Search Photo";
     self.tfSearch.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.title = @"Search Photo";
 }
 
 

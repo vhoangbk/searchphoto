@@ -12,6 +12,7 @@
 #import "AMAImageViewCell.h"
 #import "ImageRecord.h"
 #import "UIImageView+AFNetworking.h"
+#import "ShowPhotoViewController.h"
 
 @interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -25,9 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    NSLog(@"[ResultViewController] viewDidLoad() %@", self.strSearch);
+
+    self.navigationController.navigationBar.topItem.title = @"";
+    self.title = [NSString stringWithFormat:@"Search: %@", self.strSearch];
     
     self.collectionImage.dataSource = self;
     self.collectionImage.delegate = self;
@@ -39,6 +40,10 @@
     self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
                          [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.title = [NSString stringWithFormat:@"Search: %@", self.strSearch];
 }
 
 - (id<ImageSearching>)activeSearchClient
@@ -112,6 +117,20 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return [self.images count];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
+    NSLog(@"[ResultViewController] didSelectItemAtIndexPath() %@", imageRecord.imageURL);
+    
+    ShowPhotoViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoViewControllerIdentity"];
+    showVC.urlImageThum = imageRecord.thumbnailURL;
+    showVC.urlImage = imageRecord.imageURL;
+    showVC.imageTitle = imageRecord.title;
+    
+    [self.navigationController pushViewController:showVC animated:YES];
+    
 }
 
 
