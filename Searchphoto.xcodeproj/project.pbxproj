@@ -41,6 +41,7 @@
 		88275D0B1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D0A1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m */; };
 		88275D111C3B83F00087C206 /* CollectionImageLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D101C3B83F00087C206 /* CollectionImageLayout.m */; };
 		88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */; };
+		88275D181C3BBD710087C206 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D171C3BBD710087C206 /* Const.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +60,6 @@
 		7FFDE13D1C3AC27200171DFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7FFDE14C1C3AC88800171DFC /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = utils/Utils.h; sourceTree = "<group>"; };
 		7FFDE14D1C3AC88800171DFC /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = utils/Utils.m; sourceTree = "<group>"; };
-		7FFDE14F1C3AC89C00171DFC /* Const.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
 		7FFDE1531C3AC90100171DFC /* APIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIClient.h; path = network/APIClient.h; sourceTree = "<group>"; };
 		7FFDE1541C3AC90100171DFC /* APIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIClient.m; path = network/APIClient.m; sourceTree = "<group>"; };
 		7FFDE1571C3AC94200171DFC /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = controller/BaseViewController.h; sourceTree = "<group>"; };
@@ -115,6 +115,8 @@
 		88275D101C3B83F00087C206 /* CollectionImageLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionImageLayout.m; path = view/CollectionImageLayout.m; sourceTree = "<group>"; };
 		88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoViewController.h; path = controller/ShowPhotoViewController.h; sourceTree = "<group>"; };
 		88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoViewController.m; path = controller/ShowPhotoViewController.m; sourceTree = "<group>"; };
+		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
+		88275D171C3BBD710087C206 /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Const.m; path = utils/Const.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +201,8 @@
 			children = (
 				7FFDE14C1C3AC88800171DFC /* Utils.h */,
 				7FFDE14D1C3AC88800171DFC /* Utils.m */,
-				7FFDE14F1C3AC89C00171DFC /* Const.h */,
+				88275D161C3BBD710087C206 /* Const.h */,
+				88275D171C3BBD710087C206 /* Const.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				TargetAttributes = {
 					7FFDE1281C3AC27200171DFC = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = M4XKHPXK2E;
 					};
 				};
 			};
@@ -397,6 +401,7 @@
 				88275D0B1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				88275CEC1C3B79EE0087C206 /* AFURLSessionManager.m in Sources */,
 				88275CE61C3B79EE0087C206 /* AFHTTPSessionManager.m in Sources */,
+				88275D181C3BBD710087C206 /* Const.m in Sources */,
 				88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */,
 				88275CE71C3B79EE0087C206 /* AFNetworkReachabilityManager.m in Sources */,
 				7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */,
@@ -531,7 +536,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = searchphoto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.paraline.searchphoto;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;
@@ -545,7 +552,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = searchphoto/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.paraline.searchphoto;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;

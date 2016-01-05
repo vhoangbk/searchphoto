@@ -2,12 +2,16 @@
 //  Const.h
 //  Searchphoto
 //
-//  Created by Hoang Nguyen on 1/4/16.
+//  Created by paraline on 1/5/16.
 //  Copyright © 2016 Hoang Nguyen. All rights reserved.
 //
 
-#ifndef Const_h
-#define Const_h
+#import <Foundation/Foundation.h>
 
+static NSString *kStoreName = @"SearchPhoto";
 
-#endif /* Const_h */
+static NSString *kStoreKey = @"search_photo";
+
+@interface Const : NSObject
+
+@end

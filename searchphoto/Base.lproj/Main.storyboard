@@ -34,6 +34,37 @@
                                     <action selector="pressesSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ymB-h0-kEG"/>
                                 </connections>
                             </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-bi-nBu">
+                                <rect key="frame" x="-4" y="70" width="383" height="597"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rtQ-cT-OJe">
+                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AlbumIdentity" id="hjx-Ee-r39">
+                                        <rect key="frame" x="10" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="0cM-gt-IPN">
+                                                    <rect key="frame" x="-78" y="-28" width="240" height="128"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xF6-fl-dki">
+                                                    <rect key="frame" x="29" y="79" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -41,11 +72,16 @@
                             <constraint firstItem="q6N-uY-QTt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Gwa-6Z-oUr"/>
                             <constraint firstItem="q6N-uY-QTt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-5" id="IpU-fb-2fY"/>
                             <constraint firstItem="dkM-t9-HBn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="REB-nA-1ga"/>
+                            <constraint firstItem="kWl-bi-nBu" firstAttribute="top" secondItem="q6N-uY-QTt" secondAttribute="bottom" constant="10" id="c3q-Jy-Q2q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kWl-bi-nBu" secondAttribute="trailing" constant="-20" id="cLe-pc-xlZ"/>
+                            <constraint firstItem="kWl-bi-nBu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="rVR-Pn-VfH"/>
                             <constraint firstItem="dkM-t9-HBn" firstAttribute="leading" secondItem="q6N-uY-QTt" secondAttribute="trailing" constant="20" id="w0i-Oy-Fzw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kWl-bi-nBu" secondAttribute="bottom" id="wk1-Cq-xOa"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="collectionViewAlbum" destination="kWl-bi-nBu" id="Xw6-V3-yyG"/>
                         <outlet property="tfSearch" destination="q6N-uY-QTt" id="gTv-km-cMt"/>
                     </connections>
                 </viewController>
@@ -157,4 +193,7 @@
             <point key="canvasLocation" x="1186.5" y="348.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="folder" width="128" height="128"/>
+    </resources>
 </document>

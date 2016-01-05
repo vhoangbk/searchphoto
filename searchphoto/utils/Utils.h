@@ -10,4 +10,6 @@
 
 @interface Utils : NSObject
 
++ (NSString *)createRandomName;
+
 @end

@@ -9,6 +9,9 @@
 #import "ShowPhotoViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "UIImage+AFNetworking.h"
+#import "Utils.h"
+#import "Const.h"
+
 
 @interface ShowPhotoViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgPresent;
@@ -28,6 +31,10 @@
 
 - (IBAction)createAlbum:(id)sender {
     NSLog(@"[ShowPhotoViewController] createAlbum()");
+    
+  
+    
+//    [pngData writeToFile:filePath atomically:YES]; //Write the file
 }
 - (IBAction)saveImage:(id)sender {
     NSLog(@"[ShowPhotoViewController] saveImage() %@", self.urlImage);
@@ -35,6 +42,24 @@
     NSData *data = [NSData dataWithContentsOfURL:self.urlImage];
     UIImage *image = [UIImage imageWithData:data scale:1.0];
     
+}
+
+- (void)createAlbum{
+    
+    NSString *album = [Utils createRandomName];
+    
+    NSArray *paths = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+    NSString *folder = [NSString stringWithFormat:@"%@/%@",paths,album];
+    
+    
+    NSError * error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtPath:folder
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:&error];
+    if (error != nil) {
+        NSLog(@"error creating directory: %@", error);
+    }
 }
 
 

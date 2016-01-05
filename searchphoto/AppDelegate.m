@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "SearchViewController.h"
+#import "Const.h"
+
+static NSString *kStoreName;
 
 @interface AppDelegate ()
 
@@ -26,7 +29,27 @@
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFBingAPIClient" }];
     
+    [self createStoreAlbum];
+    
     return YES;
+}
+
+- (void) createStoreAlbum{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:kStoreName];
+    
+    NSError * error = nil;
+    [[NSFileManager defaultManager] createDirectoryAtPath:documentsPath
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:&error];
+    if (error != nil) {
+        NSLog(@"error creating directory: %@", error);
+        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kStoreKey];
+    }else{
+        [[NSUserDefaults standardUserDefaults] setObject:documentsPath forKey:kStoreKey];
+    }
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

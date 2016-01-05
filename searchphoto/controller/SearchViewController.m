@@ -8,10 +8,15 @@
 
 #import "SearchViewController.h"
 #import "ResultViewController.h"
+#import "Const.h"
+#import "Utils.h"
+#import "AMAImageViewCell.h"
 
-@interface SearchViewController () <UITextFieldDelegate>
+
+@interface SearchViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UITextField *tfSearch;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
 
 @end
 
@@ -21,6 +26,11 @@
     [super viewDidLoad];
 
     self.tfSearch.delegate = self;
+    
+    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+    NSArray *array = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+    NSLog(@"path: %@, size:%d ", path, [array count]);
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -40,14 +50,34 @@
     
 }
 
+
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [self.tfSearch resignFirstResponder];
     return YES;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-//    [self.view endEditing:YES];
     [self.tfSearch resignFirstResponder];
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 3;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    AMAImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumIdentity"
+                                                                       forIndexPath:indexPath];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSLog(@"[SearchViewController] didSelectItemAtIndexPath() %d", indexPath.row);
+    
 }
 
 
