@@ -12,10 +12,14 @@
 #import "Utils.h"
 #import "Const.h"
 #import "UIView+Toast.h"
+#import "MBProgressHUD.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 
 @interface ShowPhotoViewController ()
+
 @property (weak, nonatomic) IBOutlet UIImageView *imgPresent;
+@property ALAssetsLibrary *assetsLibrary;
 
 @end
 
@@ -70,7 +74,7 @@
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Select album"
                                   message:@""
-                                  preferredStyle:UIAlertControllerStyleActionSheet];
+                                  preferredStyle:UIAlertControllerStyleAlert];
     
     NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
     NSArray *albums = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
@@ -81,7 +85,7 @@
                                                            
                                                            [alert dismissViewControllerAnimated:YES completion:nil];
                                                            
-                                                           [self saveImageWithPath:[path stringByAppendingPathComponent:album]];
+                                                           [self saveImageWithPath:[path stringByAppendingPathComponent:album] : album];
                                                        }];
         [alert addAction:action];
     }
@@ -100,13 +104,36 @@
     
 }
 
-- (void)saveImageWithPath : (NSString*) path{
+- (ALAssetsLibrary *)getAssetsLibrary
+{
+    if (self.assetsLibrary) {
+        return self.assetsLibrary;
+    }
+    self.assetsLibrary = [[ALAssetsLibrary alloc] init];
+    return self.assetsLibrary;
+}
+
+- (void)saveImageWithPath : (NSString*) path : (NSString*) album{
+
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     NSString *filename = [[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
     NSData *data = [NSData dataWithContentsOfURL:self.urlImage];
     NSString *filePath = [path stringByAppendingPathComponent:filename];
     [data writeToFile:filePath atomically:YES];
-//    UIImage *image = [UIImage imageWithData:data scale:1.0];
+    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+    
+    [[self getAssetsLibrary] saveImage:image toAlbum:album completion:^(NSURL *assetURL, NSError *error) {
+        NSLog(@"completion %@", assetURL);
+    } failure:^(NSError *error) {
+        NSLog(@"error");
+    }];
+    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    
 }
+
+
 
 - (void)createAlbumWithName : (NSString*) name{
     
