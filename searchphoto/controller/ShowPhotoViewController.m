@@ -8,7 +8,6 @@
 
 #import "ShowPhotoViewController.h"
 #import "UIImageView+AFNetworking.h"
-#import "UIImage+AFNetworking.h"
 #import "Utils.h"
 #import "Const.h"
 #import "UIView+Toast.h"
@@ -55,6 +54,7 @@
                              UITextField *tf = [alert.textFields firstObject];
                              if ([tf.text length]>0) {
                                  [self createAlbumWithName:tf.text];
+                                 
                              }
                          }];
     UIAlertAction* cancel = [UIAlertAction
@@ -70,6 +70,16 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)createAlbumWithName : (NSString*) name{
+    
+    [[self getAssetsLibrary] addAssetsGroupAlbumWithName:name resultBlock:^(ALAssetsGroup *group) {
+        [self.view makeToast:[NSString stringWithFormat:@"Album %@ has created", name]];
+    } failureBlock:^(NSError *error) {
+        [self.view makeToast:@"Creating album error"];
+    }];
+}
+
 - (IBAction)saveImage:(id)sender {
     UIAlertController * alert=   [UIAlertController
                                   alertControllerWithTitle:@"Select album"
@@ -96,6 +106,7 @@
                              handler:^(UIAlertAction * action)
                              {
                                  [alert dismissViewControllerAnimated:YES completion:nil];
+                                 [self saveImageWithPath:[path stringByAppendingPathComponent:@"dog"] : @"dog"];
                              }];
     
     [alert addAction:cancel];
@@ -104,8 +115,7 @@
     
 }
 
-- (ALAssetsLibrary *)getAssetsLibrary
-{
+- (ALAssetsLibrary *)getAssetsLibrary{
     if (self.assetsLibrary) {
         return self.assetsLibrary;
     }
@@ -117,11 +127,8 @@
 
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    NSString *filename = [[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
-    NSData *data = [NSData dataWithContentsOfURL:self.urlImage];
-    NSString *filePath = [path stringByAppendingPathComponent:filename];
-    [data writeToFile:filePath atomically:YES];
-    UIImage *image = [UIImage imageWithContentsOfFile:filePath];
+    NSData *dataImage = [NSData dataWithContentsOfURL:self.urlImage];
+    UIImage *image = [UIImage imageWithData:dataImage];
     
     [[self getAssetsLibrary] saveImage:image toAlbum:album completion:^(NSURL *assetURL, NSError *error) {
         NSLog(@"completion %@", assetURL);
@@ -135,22 +142,7 @@
 
 
 
-- (void)createAlbumWithName : (NSString*) name{
-    
-    NSArray *paths = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
-    NSString *folder = [NSString stringWithFormat:@"%@/%@",paths,name];
-    
-    NSError * error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtPath:folder
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:&error];
-    if (error != nil) {
-        [self.view makeToast:@"Creating album error"];
-    }else{
-        [self.view makeToast:[NSString stringWithFormat:@"Album %@ has created", name]];
-    }
-}
+
 
 
 @end

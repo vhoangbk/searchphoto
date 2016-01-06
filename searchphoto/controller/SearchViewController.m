@@ -14,13 +14,15 @@
 #import "AlbumCollectionViewCell.h"
 #import "UIView+Toast.h"
 #import "ShowPhotoAlbumViewController.h"
+#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 
 @interface SearchViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UITextField *tfSearch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
-@property (strong, nonatomic) NSArray *arrayAlbum;
+@property (strong, nonatomic) NSMutableArray *arrayAlbum;
+@property ALAssetsLibrary *assetsLibrary;
 
 @end
 
@@ -39,12 +41,56 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
-    self.arrayAlbum = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+//    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+//    self.arrayAlbum = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
+    
+    self.arrayAlbum = [[NSMutableArray alloc] init];
 
-    [self.collectionViewAlbum reloadData];
+    
     
     self.navigationItem.title = @"Search Photo";
+    
+    
+    [[self getAssetsLibrary] enumerateGroupsWithTypes:ALAssetsGroupAlbum usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
+        
+        // Within the group enumeration block, filter to enumerate just photos.
+        [group setAssetsFilter:[ALAssetsFilter allPhotos]];
+        
+        NSLog(@"group: %@", group);
+        if (group != nil) {
+            
+            [self.arrayAlbum addObject:group];
+        }else{
+            *stop = YES;
+//            [self.collectionViewAlbum reloadData];
+        }
+        
+        // Chooses the photo at the last index
+//        [group enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:^(ALAsset *alAsset, NSUInteger index, BOOL *innerStop) {
+//            // The end of the enumeration is signaled by asset == nil.
+//            if (alAsset) {
+//                ALAssetRepresentation *representation = [alAsset defaultRepresentation];
+////                UIImage *latestPhoto = [UIImage imageWithCGImage:[representation fullScreenImage]];
+//                
+//                
+//                UIImage *latestPhotoThumbnail =  [UIImage imageWithCGImage:[alAsset thumbnail]];
+//                
+//                
+//                // Stop the enumerations
+//                *stop = YES; *innerStop = YES;
+//                
+//                // Do something interesting with the AV asset.
+//                //[self sendTweet:latestPhoto];
+//                NSLog(@"group index: %d", index);
+//            }
+//        }];
+        
+    } failureBlock: ^(NSError *error) {
+        // Typically you should handle an error more gracefully than this.
+        NSLog(@"No groups");
+    }];
+    
+    NSLog(@"-----");
     
 }
 
@@ -61,6 +107,14 @@
         [self.view makeToast:@"No input text to search"];
     }
     
+}
+
+- (ALAssetsLibrary *)getAssetsLibrary{
+    if (self.assetsLibrary) {
+        return self.assetsLibrary;
+    }
+    self.assetsLibrary = [[ALAssetsLibrary alloc] init];
+    return self.assetsLibrary;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -86,7 +140,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     AlbumCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumIdentity"
                                                                        forIndexPath:indexPath];
-    cell.lbName.text = [self.arrayAlbum objectAtIndex:indexPath.row];
+    
+    ALAssetsGroup *group = [self.arrayAlbum objectAtIndex:indexPath.row];
+    cell.lbName.text = [group valueForKey:ALAssetsGroupPropertyName];
     
     return cell;
 }
