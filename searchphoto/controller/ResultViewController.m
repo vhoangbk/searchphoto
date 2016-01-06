@@ -9,7 +9,7 @@
 #import "ResultViewController.h"
 #import "MBProgressHUD.h"
 #import "ImageSearching.h"
-#import "AMAImageViewCell.h"
+#import "ImageViewCell.h"
 #import "ImageRecord.h"
 #import "UIImageView+AFNetworking.h"
 #import "ShowPhotoViewController.h"
@@ -34,7 +34,7 @@
     self.collectionImage.dataSource = self;
     self.collectionImage.delegate = self;
     
-    [self.collectionImage registerClass:[AMAImageViewCell class] forCellWithReuseIdentifier:@"ImageViewCellIdentity"];
+    [self.collectionImage registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"ImageViewCellIdentity"];
     
     [self loadImagesWithOffset:0];
     
@@ -98,7 +98,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    AMAImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageViewCellIdentity"
+    ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImageViewCellIdentity"
                                                                        forIndexPath:indexPath];
     
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */; };
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
-		7F6EF1181C3C31A200F342F9 /* AMAImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* AMAImageViewCell.m */; };
+		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -38,9 +38,9 @@
 		88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFB1C3B7A0A0087C206 /* UIProgressView+AFNetworking.m */; };
 		88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */; };
 		88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */; };
-		88275D0B1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D0A1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m */; };
 		88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */; };
-		88275D181C3BBD710087C206 /* Const.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D171C3BBD710087C206 /* Const.m */; };
+		88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343531C3CAFF2002B5833 /* UIView+Toast.m */; };
+		88F343571C3CD593002B5833 /* ShowPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +49,8 @@
 		7F6EF1121C3C317E00F342F9 /* AFBingAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFBingAPIClient.h; path = network/AFBingAPIClient.h; sourceTree = "<group>"; };
 		7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFBingAPIClient.m; path = network/AFBingAPIClient.m; sourceTree = "<group>"; };
 		7F6EF1151C3C319600F342F9 /* ImageSearching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearching.h; path = network/ImageSearching.h; sourceTree = "<group>"; };
-		7F6EF1161C3C31A200F342F9 /* AMAImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AMAImageViewCell.h; path = view/AMAImageViewCell.h; sourceTree = "<group>"; };
-		7F6EF1171C3C31A200F342F9 /* AMAImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AMAImageViewCell.m; path = view/AMAImageViewCell.m; sourceTree = "<group>"; };
+		7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewCell.h; path = view/ImageViewCell.h; sourceTree = "<group>"; };
+		7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewCell.m; path = view/ImageViewCell.m; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
 		7FFDE1291C3AC27200171DFC /* Searchphoto.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchphoto.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,12 +108,13 @@
 		88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "Third/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		88275CFE1C3B7A0A0087C206 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "Third/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "Third/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		88275D091C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CHTCollectionViewWaterfallLayout.h; path = Third/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
-		88275D0A1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CHTCollectionViewWaterfallLayout.m; path = Third/CHTCollectionViewWaterfallLayout/CHTCollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
 		88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoViewController.h; path = controller/ShowPhotoViewController.h; sourceTree = "<group>"; };
 		88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoViewController.m; path = controller/ShowPhotoViewController.m; sourceTree = "<group>"; };
 		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
-		88275D171C3BBD710087C206 /* Const.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Const.m; path = utils/Const.m; sourceTree = "<group>"; };
+		88F343521C3CAFF2002B5833 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Third/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
+		88F343531C3CAFF2002B5833 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Third/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
+		88F343551C3CD593002B5833 /* ShowPhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoAlbumViewController.h; path = controller/ShowPhotoAlbumViewController.h; sourceTree = "<group>"; };
+		88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoAlbumViewController.m; path = controller/ShowPhotoAlbumViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +198,6 @@
 				7FFDE14C1C3AC88800171DFC /* Utils.h */,
 				7FFDE14D1C3AC88800171DFC /* Utils.m */,
 				88275D161C3BBD710087C206 /* Const.h */,
-				88275D171C3BBD710087C206 /* Const.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -213,6 +213,8 @@
 				7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */,
 				88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */,
 				88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */,
+				88F343551C3CD593002B5833 /* ShowPhotoAlbumViewController.h */,
+				88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -220,8 +222,8 @@
 		88275CA11C3B61D30087C206 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7F6EF1161C3C31A200F342F9 /* AMAImageViewCell.h */,
-				7F6EF1171C3C31A200F342F9 /* AMAImageViewCell.m */,
+				7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */,
+				7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */,
 				7F6EF10F1C3C311B00F342F9 /* AlbumCollectionViewCell.h */,
 				7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */,
 			);
@@ -231,7 +233,7 @@
 		88275CC81C3B78FE0087C206 /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				88275D081C3B7A200087C206 /* CHTCollectionViewWaterfallLayout */,
+				88F343511C3CAFE6002B5833 /* Toast */,
 				88275CCD1C3B79990087C206 /* AFNetworking */,
 				88275CC91C3B793B0087C206 /* MBProgressHUD */,
 			);
@@ -307,13 +309,13 @@
 			name = "UIKit+AFNetworking";
 			sourceTree = "<group>";
 		};
-		88275D081C3B7A200087C206 /* CHTCollectionViewWaterfallLayout */ = {
+		88F343511C3CAFE6002B5833 /* Toast */ = {
 			isa = PBXGroup;
 			children = (
-				88275D091C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.h */,
-				88275D0A1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m */,
+				88F343521C3CAFF2002B5833 /* UIView+Toast.h */,
+				88F343531C3CAFF2002B5833 /* UIView+Toast.m */,
 			);
-			name = CHTCollectionViewWaterfallLayout;
+			name = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,16 +393,15 @@
 				7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */,
 				7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */,
 				88275D001C3B7A0A0087C206 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				88275D0B1C3B7A2B0087C206 /* CHTCollectionViewWaterfallLayout.m in Sources */,
 				88275CEC1C3B79EE0087C206 /* AFURLSessionManager.m in Sources */,
 				88275CE61C3B79EE0087C206 /* AFHTTPSessionManager.m in Sources */,
-				88275D181C3BBD710087C206 /* Const.m in Sources */,
 				88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */,
 				88275CE71C3B79EE0087C206 /* AFNetworkReachabilityManager.m in Sources */,
 				7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */,
 				7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */,
 				88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */,
 				88275D041C3B7A0A0087C206 /* UIImageView+AFNetworking.m in Sources */,
+				88F343571C3CD593002B5833 /* ShowPhotoAlbumViewController.m in Sources */,
 				88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */,
 				88275CEB1C3B79EE0087C206 /* AFURLResponseSerialization.m in Sources */,
 				88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -412,10 +413,11 @@
 				7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */,
 				88275CE81C3B79EE0087C206 /* AFSecurityPolicy.m in Sources */,
 				7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */,
+				88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */,
 				88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */,
 				7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */,
 				7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */,
-				7F6EF1181C3C31A200F342F9 /* AMAImageViewCell.m in Sources */,
+				7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */,
 				7FFDE12E1C3AC27200171DFC /* main.m in Sources */,
 				88275D021C3B7A0A0087C206 /* UIAlertView+AFNetworking.m in Sources */,
 			);

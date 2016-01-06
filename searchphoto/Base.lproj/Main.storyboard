@@ -112,6 +112,57 @@
             </objects>
             <point key="canvasLocation" x="296.5" y="348.5"/>
         </scene>
+        <!--Show Photo Album View Controller-->
+        <scene sceneID="UOe-kk-FGr">
+            <objects>
+                <viewController storyboardIdentifier="ShowPhotoAlbumViewControllerIdentity" id="LEH-Sd-m1T" customClass="ShowPhotoAlbumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RTf-tI-C2p"/>
+                        <viewControllerLayoutGuide type="bottom" id="4KJ-gE-w6a"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eEO-aq-kDg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-HA-IeT">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ph9-TX-BGm">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ImageViewCellIdentity" reuseIdentifier="ImagePhotoIdentity" id="PMb-EA-nWH">
+                                        <rect key="frame" x="10" y="10" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6yk-HA-IeT" firstAttribute="top" secondItem="eEO-aq-kDg" secondAttribute="topMargin" id="IPv-d0-X7b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6yk-HA-IeT" secondAttribute="trailing" constant="-20" id="M2r-k0-Dly"/>
+                            <constraint firstItem="6yk-HA-IeT" firstAttribute="leading" secondItem="eEO-aq-kDg" secondAttribute="leadingMargin" constant="-20" id="l6U-3Z-0bZ"/>
+                            <constraint firstItem="4KJ-gE-w6a" firstAttribute="top" secondItem="6yk-HA-IeT" secondAttribute="bottom" id="pjY-QJ-pex"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="collectionPhoto" destination="6yk-HA-IeT" id="QVg-60-mEJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x4j-xg-46v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.5" y="1131.5"/>
+        </scene>
         <!--Result View Controller-->
         <scene sceneID="z5T-gT-xiO">
             <objects>
@@ -126,6 +177,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-Kd-0Kl">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="we2-cy-rzK">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -133,7 +185,7 @@
                                     <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCellIdentity" id="eaT-zV-pwS" customClass="AMAImageViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageViewCellIdentity" id="eaT-zV-pwS">
                                         <rect key="frame" x="10" y="10" width="150" height="150"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

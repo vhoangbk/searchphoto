@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 amaechler. All rights reserved.
 //
 
-#import "AMAImageViewCell.h"
+#import "ImageViewCell.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AMAImageViewCell ()
+@interface ImageViewCell ()
 
 @property (strong, readwrite, nonatomic) UIImageView *imageView;
 
 @end
 
 
-@implementation AMAImageViewCell
+@implementation ImageViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

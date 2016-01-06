@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AMAImageViewCell : UICollectionViewCell
+@interface ImageViewCell : UICollectionViewCell
 
 @property (strong, readonly, nonatomic) UIImageView *imageView;
 

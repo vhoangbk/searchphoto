@@ -10,8 +10,10 @@
 #import "ResultViewController.h"
 #import "Const.h"
 #import "Utils.h"
-#import "AMAImageViewCell.h"
+#import "ImageViewCell.h"
 #import "AlbumCollectionViewCell.h"
+#import "UIView+Toast.h"
+#import "ShowPhotoAlbumViewController.h"
 
 
 @interface SearchViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
@@ -39,7 +41,7 @@
 - (void)viewWillAppear:(BOOL)animated{
     NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
     self.arrayAlbum = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
-    NSLog(@"path: %@, size:%d ", path, [self.arrayAlbum count]);
+
     [self.collectionViewAlbum reloadData];
     
     self.navigationItem.title = @"Search Photo";
@@ -56,6 +58,7 @@
         [self.navigationController pushViewController:resultVC animated:YES];
     }else{
         NSLog(@"[SearchViewController] pressesSearchButton() text nil");
+        [self.view makeToast:@"No input text to search"];
     }
     
 }
@@ -91,8 +94,19 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSLog(@"[SearchViewController] didSelectItemAtIndexPath() %d", indexPath.row);
+    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
+    NSString *album = [path stringByAppendingPathComponent:[self.arrayAlbum objectAtIndex:indexPath.row]];
     
+    NSArray *listImage = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:album error:nil];
+
+    ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
+    if ([listImage count] > 0) {
+        showVC.path = album;
+        showVC.album = [self.arrayAlbum objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:showVC animated:YES];
+    }else{
+        [self.view makeToast:@"Album empty"];
+    }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
