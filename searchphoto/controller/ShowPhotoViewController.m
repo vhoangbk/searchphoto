@@ -12,13 +12,14 @@
 #import "Const.h"
 #import "UIView+Toast.h"
 #import "MBProgressHUD.h"
-#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
+@import Photos;
 
 @interface ShowPhotoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgPresent;
-@property ALAssetsLibrary *assetsLibrary;
+@property (strong, nonatomic) NSMutableArray *arrayPHAssetCollection;
+@property PHFetchResult *pHFetchResultAlbum;
 
 @end
 
@@ -32,117 +33,82 @@
     self.title = self.imageTitle;
     
     [self.imgPresent setImageWithURL:self.urlImageThum];
+    
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
+                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(handleSaveButtonItem)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+    
+    self.arrayPHAssetCollection = [[NSMutableArray alloc] init];
+    
+    self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
+    
+    [self.pHFetchResultAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [self.arrayPHAssetCollection addObject:obj];
+    }];
 }
 
 #pragma mark - private method
-- (IBAction)createAlbum:(id)sender {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@""
-                                  message:@""
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = @"Username";
-    }];
-    
-    UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                             UITextField *tf = [alert.textFields firstObject];
-                             if ([tf.text length]>0) {
-                                 [self createAlbumWithName:tf.text];
-                                 
-                             }
-                         }];
-    UIAlertAction* cancel = [UIAlertAction
-                         actionWithTitle:@"Cancel"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action)
-                         {
-                             [alert dismissViewControllerAnimated:YES completion:nil];
-                         }];
-    
-    [alert addAction:ok];
-    [alert addAction:cancel];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}
 
-- (void)createAlbumWithName : (NSString*) name{
-    
-    [[self getAssetsLibrary] addAssetsGroupAlbumWithName:name resultBlock:^(ALAssetsGroup *group) {
-        [self.view makeToast:[NSString stringWithFormat:@"Album %@ has created", name]];
-    } failureBlock:^(NSError *error) {
-        [self.view makeToast:@"Creating album error"];
-    }];
-}
+- (void)handleSaveButtonItem {
+    UIAlertController *alert =
+      [UIAlertController alertControllerWithTitle:@"Select album"
+                                          message:@""
+                                   preferredStyle:UIAlertControllerStyleAlert];
+    for (PHAssetCollection *album in self.arrayPHAssetCollection) {
+    UIAlertAction *action =
+        [UIAlertAction actionWithTitle:album.localizedTitle
+                                 style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action) {
 
-- (IBAction)saveImage:(id)sender {
-    UIAlertController * alert=   [UIAlertController
-                                  alertControllerWithTitle:@"Select album"
-                                  message:@""
-                                  preferredStyle:UIAlertControllerStyleAlert];
-    
-    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
-    NSArray *albums = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:path error:NULL];
-    for (NSString *album in albums) {
-        UIAlertAction *action = [UIAlertAction actionWithTitle:album
-                                                         style:UIAlertActionStyleDefault
-                                                       handler:^(UIAlertAction *action) {
-                                                           
-                                                           [alert dismissViewControllerAnimated:YES completion:nil];
-                                                           
-                                                           [self saveImageWithPath:[path stringByAppendingPathComponent:album] : album];
-                                                       }];
+                                 [self saveImage:album];
+
+                               }];
         [alert addAction:action];
-    }
-    
-    UIAlertAction* cancel = [UIAlertAction
-                             actionWithTitle:@"Cancel"
-                             style:UIAlertActionStyleDefault
-                             handler:^(UIAlertAction * action)
-                             {
-                                 [alert dismissViewControllerAnimated:YES completion:nil];
-                                 [self saveImageWithPath:[path stringByAppendingPathComponent:@"dog"] : @"dog"];
-                             }];
-    
-    [alert addAction:cancel];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-    
+  }
+
+  UIAlertAction *cancel =
+      [UIAlertAction actionWithTitle:@"Cancel"
+                               style:UIAlertActionStyleDefault
+                             handler:nil];
+
+  [alert addAction:cancel];
+
+  [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (ALAssetsLibrary *)getAssetsLibrary{
-    if (self.assetsLibrary) {
-        return self.assetsLibrary;
-    }
-    self.assetsLibrary = [[ALAssetsLibrary alloc] init];
-    return self.assetsLibrary;
-}
-
-- (void)saveImageWithPath : (NSString*) path : (NSString*) album{
-
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    NSData *dataImage = [NSData dataWithContentsOfURL:self.urlImage];
-    UIImage *image = [UIImage imageWithData:dataImage];
-    
-    [[self getAssetsLibrary] saveImage:image toAlbum:album completion:^(NSURL *assetURL, NSError *error) {
-        NSLog(@"completion %@", assetURL);
-    } failure:^(NSError *error) {
-        NSLog(@"error");
+- (void)addNewAssetWithImage:(UIImage *)image toAlbum:(PHAssetCollection *)album{
+    [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
+        // Request creating an asset from the image.
+        PHAssetChangeRequest *createAssetRequest = [PHAssetChangeRequest creationRequestForAssetFromImage:image];
+        
+        // Request editing the album.
+        PHAssetCollectionChangeRequest *albumChangeRequest = [PHAssetCollectionChangeRequest changeRequestForAssetCollection:album];
+        
+        // Get a placeholder for the new asset and add it to the album editing request.
+        PHObjectPlaceholder *assetPlaceholder = [createAssetRequest placeholderForCreatedAsset];
+        [albumChangeRequest addAssets:@[ assetPlaceholder ]];
+        
+    } completionHandler:^(BOOL success, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"add photo sucess");
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+//            if (success) {
+//                [self.view makeToast:@"Add photo sucess"];
+//            }else{
+//                [self.view makeToast:@"Add photo error"];
+//            }
+        });
+        
     }];
-    
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
-    
 }
 
-
-
-
-
+- (void)saveImage : (PHAssetCollection*) collection{
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSData *dataImage = [NSData dataWithContentsOfURL:self.urlImage];
+        UIImage *image = [UIImage imageWithData:dataImage];
+        
+        [self addNewAssetWithImage:image toAlbum:collection];
+    
+}
 
 @end

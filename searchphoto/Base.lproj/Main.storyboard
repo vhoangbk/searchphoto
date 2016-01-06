@@ -36,7 +36,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-bi-nBu">
                                 <rect key="frame" x="-4" y="70" width="383" height="597"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rtQ-cT-OJe">
                                     <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -126,7 +126,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-HA-IeT">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ph9-TX-BGm">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -177,7 +177,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Um9-Kd-0Kl">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="we2-cy-rzK">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -232,30 +232,12 @@
                                     <constraint firstAttribute="width" secondItem="teC-Up-pvK" secondAttribute="height" multiplier="1:1" id="Wwk-Dv-vC3"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVU-HS-3ud">
-                                <rect key="frame" x="31" y="617" width="94" height="30"/>
-                                <state key="normal" title="Create Album"/>
-                                <connections>
-                                    <action selector="createAlbum:" destination="yd9-GE-9Qy" eventType="touchUpInside" id="7GS-Kc-S3k"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgY-Oj-xFS">
-                                <rect key="frame" x="310" y="617" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveImage:" destination="yd9-GE-9Qy" eventType="touchUpInside" id="oHI-KU-xbk"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Mqn-uG-99T" firstAttribute="top" secondItem="sVU-HS-3ud" secondAttribute="bottom" constant="20" id="ElZ-85-D3g"/>
                             <constraint firstItem="teC-Up-pvK" firstAttribute="leading" secondItem="9vm-yl-8Du" secondAttribute="leadingMargin" constant="-20" id="HFH-hR-QKd"/>
-                            <constraint firstItem="Mqn-uG-99T" firstAttribute="top" secondItem="qgY-Oj-xFS" secondAttribute="bottom" constant="20" id="Nub-kB-HiP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qgY-Oj-xFS" secondAttribute="trailing" constant="15" id="VeT-0m-BxY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="teC-Up-pvK" secondAttribute="trailing" constant="-20" id="aIz-fv-voc"/>
                             <constraint firstItem="teC-Up-pvK" firstAttribute="top" secondItem="KdJ-IT-s2K" secondAttribute="bottom" id="dru-Dj-D8h"/>
-                            <constraint firstItem="sVU-HS-3ud" firstAttribute="leading" secondItem="9vm-yl-8Du" secondAttribute="leadingMargin" constant="15" id="kfU-Ft-4cV"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
