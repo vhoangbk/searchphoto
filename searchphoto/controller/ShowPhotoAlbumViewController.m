@@ -7,8 +7,12 @@
 //
 
 #import "ShowPhotoAlbumViewController.h"
+#import "UIPhotoGalleryView.h"
 
-@interface ShowPhotoAlbumViewController ()
+
+@interface ShowPhotoAlbumViewController () <UIPhotoGalleryDataSource>
+
+@property (strong, nonatomic) IBOutlet UIPhotoGalleryView *galeryAlbum;
 
 @end
 
@@ -16,9 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.galeryAlbum.dataSource = self;
 
-    [self.imgPresent setImage:self.image];
+    self.galeryAlbum.initialIndex = self.currentIndex;
+    self.galeryAlbum.showsScrollIndicator = YES;
+    self.galeryAlbum.galleryMode = UIPhotoGalleryModeImageLocal;
+
+    
+    
 }
 
+
+#pragma UIPhotoGalleryDataSource methods
+- (NSInteger)numberOfViewsInPhotoGallery:(UIPhotoGalleryView *)photoGallery {
+    return [self.arrayImages count];
+}
+
+- (UIImage*)photoGallery:(UIPhotoGalleryView*)photoGallery localImageAtIndex:(NSInteger)index {
+    return [self.arrayImages objectAtIndex:index];
+}
 
 @end

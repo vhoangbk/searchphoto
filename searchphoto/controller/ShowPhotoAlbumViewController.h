@@ -8,10 +8,13 @@
 
 #import "BaseViewController.h"
 
+@import Photos;
+
 @interface ShowPhotoAlbumViewController : BaseViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgPresent;
+@property NSMutableArray *arrayImages;
 
-@property UIImage *image;
+//@property PHFetchResult *fetchPhoto;
+@property NSUInteger currentIndex;
 
 @end

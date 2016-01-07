@@ -10,6 +10,9 @@
 		7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */; };
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
+		7F73DB451C3EB49200FBE3F3 /* UIPhotoGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */; };
+		7F73DB461C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */; };
+		7F73DB471C3EB49200FBE3F3 /* UIPhotoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -60,7 +63,6 @@
 		88D021B31C3E7A6000CEB609 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021A31C3E7A6000CEB609 /* UIView+WebCacheOperation.m */; };
 		88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343531C3CAFF2002B5833 /* UIView+Toast.m */; };
 		88F343571C3CD593002B5833 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* AlbumViewController.m */; };
-		88F343941C3D00B6002B5833 /* ZoomRotatePanImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,12 @@
 		7F6EF1151C3C319600F342F9 /* ImageSearching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearching.h; path = network/ImageSearching.h; sourceTree = "<group>"; };
 		7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewCell.h; path = view/ImageViewCell.h; sourceTree = "<group>"; };
 		7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewCell.m; path = view/ImageViewCell.m; sourceTree = "<group>"; };
+		7F73DB3F1C3EB49200FBE3F3 /* UIPhotoGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoGalleryView.h; path = Third/UIPhotoGallery/UIPhotoGalleryView.h; sourceTree = "<group>"; };
+		7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoGalleryView.m; path = Third/UIPhotoGallery/UIPhotoGalleryView.m; sourceTree = "<group>"; };
+		7F73DB411C3EB49200FBE3F3 /* UIPhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoGalleryViewController.h; path = Third/UIPhotoGallery/UIPhotoGalleryViewController.h; sourceTree = "<group>"; };
+		7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoGalleryViewController.m; path = Third/UIPhotoGallery/UIPhotoGalleryViewController.m; sourceTree = "<group>"; };
+		7F73DB431C3EB49200FBE3F3 /* UIPhotoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoItemView.h; path = Third/UIPhotoGallery/UIPhotoItemView.h; sourceTree = "<group>"; };
+		7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoItemView.m; path = Third/UIPhotoGallery/UIPhotoItemView.m; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
 		7FFDE1291C3AC27200171DFC /* Searchphoto.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchphoto.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +181,6 @@
 		88F343531C3CAFF2002B5833 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Third/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
 		88F343551C3CD593002B5833 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = controller/AlbumViewController.h; sourceTree = "<group>"; };
 		88F343561C3CD593002B5833 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = controller/AlbumViewController.m; sourceTree = "<group>"; };
-		88F343921C3D00B6002B5833 /* ZoomRotatePanImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoomRotatePanImageView.h; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.h"; sourceTree = "<group>"; };
-		88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoomRotatePanImageView.m; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +194,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F73DB3E1C3EB48700FBE3F3 /* UIPhotoGallery */ = {
+			isa = PBXGroup;
+			children = (
+				7F73DB3F1C3EB49200FBE3F3 /* UIPhotoGalleryView.h */,
+				7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */,
+				7F73DB411C3EB49200FBE3F3 /* UIPhotoGalleryViewController.h */,
+				7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */,
+				7F73DB431C3EB49200FBE3F3 /* UIPhotoItemView.h */,
+				7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */,
+			);
+			name = UIPhotoGallery;
+			sourceTree = "<group>";
+		};
 		7FCF0FBA1C3ADE3E004CFB2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,9 +314,9 @@
 		88275CC81C3B78FE0087C206 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				7F73DB3E1C3EB48700FBE3F3 /* UIPhotoGallery */,
 				88D021821C3E7A4B00CEB609 /* SDWebImage */,
 				88D021751C3E4FF600CEB609 /* Vertigo */,
-				88F343911C3D00AC002B5833 /* ZoomRotatePanImageView-master */,
 				88F343511C3CAFE6002B5833 /* Toast */,
 				88275CCD1C3B79990087C206 /* AFNetworking */,
 				88275CC91C3B793B0087C206 /* MBProgressHUD */,
@@ -433,15 +452,6 @@
 			name = Toast;
 			sourceTree = "<group>";
 		};
-		88F343911C3D00AC002B5833 /* ZoomRotatePanImageView-master */ = {
-			isa = PBXGroup;
-			children = (
-				88F343921C3D00B6002B5833 /* ZoomRotatePanImageView.h */,
-				88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */,
-			);
-			name = "ZoomRotatePanImageView-master";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -518,7 +528,6 @@
 				7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */,
 				7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */,
 				88275D001C3B7A0A0087C206 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				88F343941C3D00B6002B5833 /* ZoomRotatePanImageView.m in Sources */,
 				88275CEC1C3B79EE0087C206 /* AFURLSessionManager.m in Sources */,
 				88275CE61C3B79EE0087C206 /* AFHTTPSessionManager.m in Sources */,
 				88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */,
@@ -557,12 +566,15 @@
 				88D021A71C3E7A6000CEB609 /* SDWebImageCompat.m in Sources */,
 				88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */,
 				88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */,
+				7F73DB451C3EB49200FBE3F3 /* UIPhotoGalleryView.m in Sources */,
 				88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */,
 				7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */,
 				7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */,
 				7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */,
+				7F73DB461C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m in Sources */,
 				88D021B21C3E7A6000CEB609 /* UIImageView+WebCache.m in Sources */,
 				7FFDE12E1C3AC27200171DFC /* main.m in Sources */,
+				7F73DB471C3EB49200FBE3F3 /* UIPhotoItemView.m in Sources */,
 				88275D021C3B7A0A0087C206 /* UIAlertView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

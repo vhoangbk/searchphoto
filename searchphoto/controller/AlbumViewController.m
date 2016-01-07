@@ -69,11 +69,24 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
 //    ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
-//    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-//    showVC.image = cell.imageView.image;
+//    showVC.currentIndex = indexPath.row;
+//    NSMutableArray *images = [[NSMutableArray alloc] init];
+//    
+//    [self.fetchPhoto enumerateObjectsUsingBlock:^(PHAsset*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+//                options.deliveryMode = PHImageRequestOptionsDeliveryModeFastFormat;
+//                options.synchronous = YES;
+//                [[PHImageManager defaultManager] requestImageDataForAsset:obj options:options resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+//                    if (imageData) {
+//                        [images addObject:[UIImage imageWithData:imageData]];
+//                    }
+//                }];
+//            }];
+//    
+//    showVC.arrayImages = images;
 //    [self.navigationController pushViewController:showVC animated:YES];
-//    NSData *data = [NSData dataWithContentsOfURL:imageRecord.thumbnailURL];
-//    UIImage *image = [UIImage imageWithData:data];
+    
+
     
     ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
     TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
