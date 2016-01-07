@@ -259,11 +259,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="teC-Up-pvK" customClass="ZoomRotatePanImageView">
-                                <rect key="frame" x="-4" y="20" width="383" height="383"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="teC-Up-pvK">
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="teC-Up-pvK" secondAttribute="height" multiplier="1:1" id="Wwk-Dv-vC3"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wwk-Dv-vC3"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -271,6 +276,7 @@
                             <constraint firstItem="teC-Up-pvK" firstAttribute="leading" secondItem="9vm-yl-8Du" secondAttribute="leadingMargin" constant="-20" id="HFH-hR-QKd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="teC-Up-pvK" secondAttribute="trailing" constant="-20" id="aIz-fv-voc"/>
                             <constraint firstItem="teC-Up-pvK" firstAttribute="top" secondItem="KdJ-IT-s2K" secondAttribute="bottom" id="dru-Dj-D8h"/>
+                            <constraint firstItem="Mqn-uG-99T" firstAttribute="top" secondItem="teC-Up-pvK" secondAttribute="bottom" id="wLa-Iw-o1A"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

@@ -14,6 +14,8 @@
 #import "MBProgressHUD.h"
 
 @import Photos;
+#import "SDImageCache.h"
+#import "SDWebImageManager.h"
 
 @interface ShowPhotoViewController ()
 
@@ -97,23 +99,32 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"add photo sucess");
             [MBProgressHUD hideHUDForView:self.view animated:YES];
-//            if (success) {
-//                [self.view makeToast:@"Add photo sucess"];
-//            }else{
-//                [self.view makeToast:@"Add photo error"];
-//            }
+            if (success) {
+                [self.view makeToast:@"Add photo sucess"];
+            }else{
+                [self.view makeToast:@"Add photo error"];
+            }
         });
         
     }];
 }
 
-- (void)saveImage : (PHAssetCollection*) collection{
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        NSData *dataImage = [NSData dataWithContentsOfURL:self.urlImage];
-        UIImage *image = [UIImage imageWithData:dataImage];
-        
-        [self addNewAssetWithImage:image toAlbum:collection];
-    
+- (void)saveImage:(PHAssetCollection *)collection {
+  [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+  SDWebImageManager *manager = [SDWebImageManager sharedManager];
+  [manager downloadImageWithURL:self.urlImage
+      options:0
+      progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        // progression tracking code
+      }
+      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType,
+                  BOOL finished, NSURL *imageURL) {
+        if (image) {
+          // do something with image
+          [self addNewAssetWithImage:image toAlbum:collection];
+        }
+      }];
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "ImageRecord.h"
 #import "UIImageView+AFNetworking.h"
 #import "ShowPhotoViewController.h"
+#import "TGRImageViewController.h"
 
 @interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -135,6 +136,12 @@
     showVC.imageTitle = imageRecord.title;
     
     [self.navigationController pushViewController:showVC animated:YES];
+    
+//    ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
+//    NSData *data = [NSData dataWithContentsOfURL:imageRecord.thumbnailURL];
+//    UIImage *image = [UIImage imageWithData:data];
+//    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:image];
+//    [self presentViewController:viewController animated:YES completion:nil];
     
 }
 

@@ -9,6 +9,7 @@
 #import "AlbumViewController.h"
 #import "ImageViewCell.h"
 #import "ShowPhotoAlbumViewController.h"
+#import "TGRImageViewController.h"
 
 @interface AlbumViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -67,11 +68,16 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
-    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    showVC.image = cell.imageView.image;
+//    ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
+//    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//    showVC.image = cell.imageView.image;
+//    [self.navigationController pushViewController:showVC animated:YES];
+//    NSData *data = [NSData dataWithContentsOfURL:imageRecord.thumbnailURL];
+//    UIImage *image = [UIImage imageWithData:data];
     
-    [self.navigationController pushViewController:showVC animated:YES];
+    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
