@@ -12,7 +12,7 @@
 @interface ShowPhotoAlbumViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionPhoto;
-@property NSArray *arrayPhoto;
+
 @property (strong, nonatomic) NSArray *cellColors;
 
 @end
@@ -22,8 +22,6 @@
 #pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.arrayPhoto = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:self.path error:nil];
     
     [self.collectionPhoto registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"ImagePhotoIdentity"];
     
@@ -44,19 +42,24 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.arrayPhoto count];
+    return [self.fetchPhoto count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImagePhotoIdentity"
                                                                               forIndexPath:indexPath];
     cell.imageView.backgroundColor = self.cellColors[indexPath.row % [self.cellColors count]];
-    
-    NSString *fileImg = [self.path stringByAppendingPathComponent:[self.arrayPhoto objectAtIndex:indexPath.row]];
-    
-    UIImage *image = [UIImage imageWithContentsOfFile:fileImg];
-    [cell.imageView setImage:image];
-    
+
+    PHAsset *asset = [self.fetchPhoto objectAtIndex:indexPath.row];
+    [[PHImageManager defaultManager] requestImageForAsset:asset
+                  targetSize:cell.bounds.size
+                 contentMode:PHImageContentModeAspectFill
+                     options:nil
+               resultHandler:^(UIImage *result, NSDictionary *info) {
+                   [cell.imageView setImage:result];
+
+               }];
+
     return cell;
 }
 

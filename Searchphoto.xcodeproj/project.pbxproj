@@ -42,7 +42,6 @@
 		88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343531C3CAFF2002B5833 /* UIView+Toast.m */; };
 		88F343571C3CD593002B5833 /* ShowPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */; };
 		88F343941C3D00B6002B5833 /* ZoomRotatePanImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */; };
-		88F343981C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343971C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,8 +118,6 @@
 		88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoAlbumViewController.m; path = controller/ShowPhotoAlbumViewController.m; sourceTree = "<group>"; };
 		88F343921C3D00B6002B5833 /* ZoomRotatePanImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoomRotatePanImageView.h; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.h"; sourceTree = "<group>"; };
 		88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoomRotatePanImageView.m; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.m"; sourceTree = "<group>"; };
-		88F343961C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ALAssetsLibrary+CustomPhotoAlbum.h"; path = "Third/ALAssetsLibrary-CustomPhotoAlbum/ALAssetsLibrary+CustomPhotoAlbum.h"; sourceTree = "<group>"; };
-		88F343971C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ALAssetsLibrary+CustomPhotoAlbum.m"; path = "Third/ALAssetsLibrary-CustomPhotoAlbum/ALAssetsLibrary+CustomPhotoAlbum.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +236,6 @@
 		88275CC81C3B78FE0087C206 /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				88F343951C3D04EB002B5833 /* ALAssetsLibrary-CustomPhotoAlbum */,
 				88F343911C3D00AC002B5833 /* ZoomRotatePanImageView-master */,
 				88F343511C3CAFE6002B5833 /* Toast */,
 				88275CCD1C3B79990087C206 /* AFNetworking */,
@@ -335,15 +331,6 @@
 			name = "ZoomRotatePanImageView-master";
 			sourceTree = "<group>";
 		};
-		88F343951C3D04EB002B5833 /* ALAssetsLibrary-CustomPhotoAlbum */ = {
-			isa = PBXGroup;
-			children = (
-				88F343961C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.h */,
-				88F343971C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.m */,
-			);
-			name = "ALAssetsLibrary-CustomPhotoAlbum";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -417,7 +404,6 @@
 			files = (
 				88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */,
 				7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */,
-				88F343981C3D04F8002B5833 /* ALAssetsLibrary+CustomPhotoAlbum.m in Sources */,
 				7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */,
 				88275D001C3B7A0A0087C206 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				88F343941C3D00B6002B5833 /* ZoomRotatePanImageView.m in Sources */,

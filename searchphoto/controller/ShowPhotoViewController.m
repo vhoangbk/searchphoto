@@ -30,9 +30,14 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.topItem.title = @"";
-    self.title = self.imageTitle;
+    self.title = [[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
     
-    [self.imgPresent setImageWithURL:self.urlImageThum];
+//    if (self.urlImage != nil) {
+//        [self.imgPresent setImageWithURL:self.urlImage];
+//    }else{
+        [self.imgPresent setImageWithURL:self.urlImageThum];
+//    }
+    
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(handleSaveButtonItem)];

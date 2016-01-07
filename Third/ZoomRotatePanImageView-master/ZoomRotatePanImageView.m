@@ -91,8 +91,8 @@
 }
 
 - (IBAction) handleRotate:(UIRotationGestureRecognizer*)recogniser {
-    recogniser.view.transform = CGAffineTransformRotate(recogniser.view.transform, recogniser.rotation);
-    recogniser.rotation = 0;
+//    recogniser.view.transform = CGAffineTransformRotate(recogniser.view.transform, recogniser.rotation);
+//    recogniser.rotation = 0;
 }
 
 - (IBAction) handleTap:(UITapGestureRecognizer*)recogniser {

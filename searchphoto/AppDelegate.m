@@ -29,8 +29,6 @@ static NSString *kStoreName;
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFBingAPIClient" }];
     
-    [self createStoreAlbum];
-    
     return YES;
 }
 

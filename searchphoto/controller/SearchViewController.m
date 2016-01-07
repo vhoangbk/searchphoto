@@ -14,7 +14,6 @@
 #import "AlbumCollectionViewCell.h"
 #import "UIView+Toast.h"
 #import "ShowPhotoAlbumViewController.h"
-#import "ALAssetsLibrary+CustomPhotoAlbum.h"
 
 @import Photos;
 
@@ -23,8 +22,8 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *tfSearch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
-@property (strong, nonatomic) NSMutableArray *arrayPHAssetCollection;
 @property PHFetchResult *pHFetchResultAlbum;
+@property PHImageManager *phImageManger;
 
 @end
 
@@ -37,16 +36,12 @@
 
     self.tfSearch.delegate = self;
     
+    self.phImageManger = [[PHImageManager alloc] init];
+    
     self.collectionViewAlbum.delegate = self;
     self.collectionViewAlbum.dataSource = self;
     
-    self.arrayPHAssetCollection = [[NSMutableArray alloc] init];
-    
     self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-    
-    [self.pHFetchResultAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.arrayPHAssetCollection addObject:obj];
-    }];
 
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
     
@@ -62,20 +57,22 @@
     self.navigationItem.title = @"Search Photo";
 }
 
-#pragma mark - PHPhotoLibraryChangeObserver
-- (void)photoLibraryDidChange:(PHChange *)changeInstance{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.arrayPHAssetCollection removeAllObjects];
-        self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
-        
-        [self.pHFetchResultAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self.arrayPHAssetCollection addObject:obj];
-        }];
-        [self.collectionViewAlbum reloadData];
-        
-    });
+- (void)dealloc {
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
 }
 
+#pragma mark - PHPhotoLibraryChangeObserver
+- (void)photoLibraryDidChange:(PHChange *)changeInstance {
+  PHFetchResultChangeDetails *collectionChanges =
+      [changeInstance changeDetailsForFetchResult:self.self.pHFetchResultAlbum];
+  if (collectionChanges == nil) {
+    return;
+  }
+  dispatch_async(dispatch_get_main_queue(), ^{
+    self.pHFetchResultAlbum = [collectionChanges fetchResultAfterChanges];
+    [self.collectionViewAlbum reloadData];
+  });
+}
 
 #pragma mark - private method
 - (IBAction)pressesSearchButton:(UIButton*)sender{
@@ -138,36 +135,52 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.arrayPHAssetCollection count];
+    return [self.pHFetchResultAlbum count];
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    AlbumCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumIdentity"
-                                                                       forIndexPath:indexPath];
-    
-    PHAssetCollection *collection = self.arrayPHAssetCollection[indexPath.row];
-    
-    cell.lbName.text = collection.localizedTitle;
-    
-    return cell;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+  AlbumCollectionViewCell *cell =
+      [collectionView dequeueReusableCellWithReuseIdentifier:@"AlbumIdentity"
+                                                forIndexPath:indexPath];
+
+  PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];
+
+  cell.lbName.text = collection.localizedTitle;
+
+  PHFetchResult *assetsFetchResult =
+      [PHAsset fetchAssetsInAssetCollection:collection options:nil];
+
+  PHAsset *lastAsset = [assetsFetchResult lastObject];
+  [self.phImageManger
+      requestImageForAsset:lastAsset
+                targetSize:cell.bounds.size
+               contentMode:PHImageContentModeAspectFill
+                   options:nil
+             resultHandler:^(UIImage *result, NSDictionary *info) {
+                 if (result != nil) {
+                     [cell.imgAlbum setImage:result];
+                 }else{
+                     [cell.imgAlbum setImage:[UIImage imageNamed:@"folder"]];
+                 }
+               
+             }];
+  return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];
+    PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
     
-//    NSString *path = [[NSUserDefaults standardUserDefaults] objectForKey:kStoreKey];
-//    NSString *album = [path stringByAppendingPathComponent:[self.arrayAlbum objectAtIndex:indexPath.row]];
-//    
-//    NSArray *listImage = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:album error:nil];
-//
-//    ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
-//    if ([listImage count] > 0) {
-//        showVC.path = album;
-//        showVC.album = [self.arrayAlbum objectAtIndex:indexPath.row];
-//        [self.navigationController pushViewController:showVC animated:YES];
-//    }else{
-//        [self.view makeToast:@"Album empty"];
-//    }
+        ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
+        if ([assetsFetchResult count] > 0) {
+            showVC.fetchPhoto = assetsFetchResult;
+            showVC.album = collection.localizedTitle;
+            [self.navigationController pushViewController:showVC animated:YES];
+        }else{
+            [self.view makeToast:@"Album empty"];
+        }
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

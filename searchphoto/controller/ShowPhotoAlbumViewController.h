@@ -8,9 +8,13 @@
 
 #import "BaseViewController.h"
 
+@import Photos;
+
 @interface ShowPhotoAlbumViewController : BaseViewController
 
-@property NSString *path;
+
 @property NSString *album;
+
+@property PHFetchResult *fetchPhoto;
 
 @end
