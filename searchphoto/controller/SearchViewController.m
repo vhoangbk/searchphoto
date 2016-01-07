@@ -13,7 +13,7 @@
 #import "ImageViewCell.h"
 #import "AlbumCollectionViewCell.h"
 #import "UIView+Toast.h"
-#import "ShowPhotoAlbumViewController.h"
+#import "AlbumViewController.h"
 
 @import Photos;
 
@@ -173,7 +173,7 @@
     PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];
     PHFetchResult *assetsFetchResult = [PHAsset fetchAssetsInAssetCollection:collection options:nil];
     
-        ShowPhotoAlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowPhotoAlbumViewControllerIdentity"];
+        AlbumViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"AlbumViewControllerIdentity"];
         if ([assetsFetchResult count] > 0) {
             showVC.fetchPhoto = assetsFetchResult;
             showVC.album = collection.localizedTitle;

@@ -91,8 +91,8 @@
 }
 
 - (IBAction) handleRotate:(UIRotationGestureRecognizer*)recogniser {
-//    recogniser.view.transform = CGAffineTransformRotate(recogniser.view.transform, recogniser.rotation);
-//    recogniser.rotation = 0;
+    recogniser.view.transform = CGAffineTransformRotate(recogniser.view.transform, recogniser.rotation);
+    recogniser.rotation = 0;
 }
 
 - (IBAction) handleTap:(UITapGestureRecognizer*)recogniser {
@@ -100,7 +100,6 @@
 }
 
 - (IBAction) handlePan:(UIPanGestureRecognizer*)recogniser {
-    
     if (recogniser.state == UIGestureRecognizerStateBegan || recogniser.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [recogniser translationInView:self.superview];
         CGPoint translatedCenter = CGPointMake(self.center.x + translation.x, self.center.y + translation.y);

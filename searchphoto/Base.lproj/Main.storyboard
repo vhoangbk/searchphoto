@@ -112,10 +112,10 @@
             </objects>
             <point key="canvasLocation" x="296.5" y="348.5"/>
         </scene>
-        <!--Show Photo Album View Controller-->
+        <!--Album View Controller-->
         <scene sceneID="UOe-kk-FGr">
             <objects>
-                <viewController storyboardIdentifier="ShowPhotoAlbumViewControllerIdentity" id="LEH-Sd-m1T" customClass="ShowPhotoAlbumViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumViewControllerIdentity" id="LEH-Sd-m1T" customClass="AlbumViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RTf-tI-C2p"/>
                         <viewControllerLayoutGuide type="bottom" id="4KJ-gE-w6a"/>
@@ -126,7 +126,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6yk-HA-IeT">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
-                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ph9-TX-BGm">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -162,6 +162,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x4j-xg-46v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="728.5" y="1131.5"/>
+        </scene>
+        <!--Show Photo Album View Controller-->
+        <scene sceneID="nhI-mm-XO4">
+            <objects>
+                <viewController storyboardIdentifier="ShowPhotoAlbumViewControllerIdentity" id="3d0-YP-LMA" customClass="ShowPhotoAlbumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nda-tD-eHZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="JSP-Ce-Opn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vaZ-JE-HD2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fSR-O5-8mC" customClass="ZoomRotatePanImageView">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fSR-O5-8mC" firstAttribute="top" secondItem="vaZ-JE-HD2" secondAttribute="topMargin" id="0Ra-y3-5lH"/>
+                            <constraint firstItem="fSR-O5-8mC" firstAttribute="leading" secondItem="vaZ-JE-HD2" secondAttribute="leadingMargin" constant="-20" id="Woy-gY-dAM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fSR-O5-8mC" secondAttribute="trailing" constant="-20" id="ibA-Ez-Onq"/>
+                            <constraint firstItem="JSP-Ce-Opn" firstAttribute="top" secondItem="fSR-O5-8mC" secondAttribute="bottom" id="s2T-hP-MpT"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imgPresent" destination="fSR-O5-8mC" id="NEt-sF-zhX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xZe-My-LIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186.5" y="1131.5"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="z5T-gT-xiO">

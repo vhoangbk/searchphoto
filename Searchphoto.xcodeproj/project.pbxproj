@@ -39,8 +39,9 @@
 		88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */; };
 		88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */; };
 		88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */; };
+		88D021661C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */; };
 		88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343531C3CAFF2002B5833 /* UIView+Toast.m */; };
-		88F343571C3CD593002B5833 /* ShowPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */; };
+		88F343571C3CD593002B5833 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* AlbumViewController.m */; };
 		88F343941C3D00B6002B5833 /* ZoomRotatePanImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */; };
 /* End PBXBuildFile section */
 
@@ -112,10 +113,12 @@
 		88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoViewController.h; path = controller/ShowPhotoViewController.h; sourceTree = "<group>"; };
 		88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoViewController.m; path = controller/ShowPhotoViewController.m; sourceTree = "<group>"; };
 		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
+		88D021641C3E1A7800CEB609 /* ShowPhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoAlbumViewController.h; path = controller/ShowPhotoAlbumViewController.h; sourceTree = "<group>"; };
+		88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoAlbumViewController.m; path = controller/ShowPhotoAlbumViewController.m; sourceTree = "<group>"; };
 		88F343521C3CAFF2002B5833 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Third/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
 		88F343531C3CAFF2002B5833 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Third/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
-		88F343551C3CD593002B5833 /* ShowPhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoAlbumViewController.h; path = controller/ShowPhotoAlbumViewController.h; sourceTree = "<group>"; };
-		88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoAlbumViewController.m; path = controller/ShowPhotoAlbumViewController.m; sourceTree = "<group>"; };
+		88F343551C3CD593002B5833 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = controller/AlbumViewController.h; sourceTree = "<group>"; };
+		88F343561C3CD593002B5833 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = controller/AlbumViewController.m; sourceTree = "<group>"; };
 		88F343921C3D00B6002B5833 /* ZoomRotatePanImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoomRotatePanImageView.h; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.h"; sourceTree = "<group>"; };
 		88F343931C3D00B6002B5833 /* ZoomRotatePanImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZoomRotatePanImageView.m; path = "Third/ZoomRotatePanImageView-master/ZoomRotatePanImageView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,8 +219,10 @@
 				7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */,
 				88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */,
 				88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */,
-				88F343551C3CD593002B5833 /* ShowPhotoAlbumViewController.h */,
-				88F343561C3CD593002B5833 /* ShowPhotoAlbumViewController.m */,
+				88F343551C3CD593002B5833 /* AlbumViewController.h */,
+				88F343561C3CD593002B5833 /* AlbumViewController.m */,
+				88D021641C3E1A7800CEB609 /* ShowPhotoAlbumViewController.h */,
+				88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -415,13 +420,14 @@
 				7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */,
 				88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */,
 				88275D041C3B7A0A0087C206 /* UIImageView+AFNetworking.m in Sources */,
-				88F343571C3CD593002B5833 /* ShowPhotoAlbumViewController.m in Sources */,
+				88F343571C3CD593002B5833 /* AlbumViewController.m in Sources */,
 				88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */,
 				88275CEB1C3B79EE0087C206 /* AFURLResponseSerialization.m in Sources */,
 				88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */,
 				88275CEA1C3B79EE0087C206 /* AFURLRequestSerialization.m in Sources */,
 				88275CE91C3B79EE0087C206 /* AFURLConnectionOperation.m in Sources */,
 				88275D031C3B7A0A0087C206 /* UIButton+AFNetworking.m in Sources */,
+				88D021661C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m in Sources */,
 				88275D011C3B7A0A0087C206 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				88275CE51C3B79EE0087C206 /* AFHTTPRequestOperationManager.m in Sources */,
 				7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */,
