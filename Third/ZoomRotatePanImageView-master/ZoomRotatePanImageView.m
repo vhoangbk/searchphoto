@@ -77,7 +77,7 @@
     [_tapRecogniser setDelegate:self];
     
     [self addGestureRecognizer:_pinchRecogniser];
-    [self addGestureRecognizer:_rotateRecogniser];
+//    [self addGestureRecognizer:_rotateRecogniser];
     [self addGestureRecognizer:_panRecogniser];
     [self addGestureRecognizer:_tapRecogniser];
     
