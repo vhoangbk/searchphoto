@@ -248,6 +248,47 @@
             </objects>
             <point key="canvasLocation" x="728.5" y="348.5"/>
         </scene>
+        <!--Show Galery View Controller-->
+        <scene sceneID="gr0-11-gJ1">
+            <objects>
+                <viewController storyboardIdentifier="ShowGaleryViewControllerIdentity" id="aiC-YM-PVU" customClass="ShowGaleryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XNd-QL-iij"/>
+                        <viewControllerLayoutGuide type="bottom" id="r0K-96-YbH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bgw-Lt-9ca">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIu-53-aTf" customClass="UIPhotoGalleryView">
+                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ix6-nR-c8c">
+                                <rect key="frame" x="164" y="319" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backAction:" destination="aiC-YM-PVU" eventType="touchUpInside" id="8fR-Ph-jlL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="lIu-53-aTf" secondAttribute="trailing" constant="-20" id="NKo-P9-9CQ"/>
+                            <constraint firstItem="r0K-96-YbH" firstAttribute="top" secondItem="lIu-53-aTf" secondAttribute="bottom" id="QW2-gX-Lb6"/>
+                            <constraint firstItem="lIu-53-aTf" firstAttribute="leading" secondItem="Bgw-Lt-9ca" secondAttribute="leadingMargin" constant="-20" id="lE3-nP-qea"/>
+                            <constraint firstItem="lIu-53-aTf" firstAttribute="top" secondItem="Bgw-Lt-9ca" secondAttribute="topMargin" constant="64" id="ltA-Vq-QTQ"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="galeryView" destination="lIu-53-aTf" id="DXL-pa-1Eu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c9o-e7-FCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1186.5" y="-411.5"/>
+        </scene>
         <!--Show Photo View Controller-->
         <scene sceneID="taj-Ju-9vy">
             <objects>

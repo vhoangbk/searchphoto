@@ -250,7 +250,7 @@
     [self addSubview:mainScrollView];
     
     reusableViews = [NSMutableSet set];
-    currentPage = 0;
+    currentPage = _initialIndex;
 }
 
 - (void)setupMainScrollView {

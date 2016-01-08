@@ -1,93 +1,86 @@
 //
-//  ShowPhotoViewController.m
+//  ShowGaleryViewController.m
 //  Searchphoto
 //
-//  Created by paraline on 1/5/16.
+//  Created by paraline on 1/8/16.
 //  Copyright © 2016 Hoang Nguyen. All rights reserved.
 //
 
-#import "ShowPhotoViewController.h"
-#import "UIImageView+AFNetworking.h"
-#import "Utils.h"
-#import "Const.h"
-#import "UIView+Toast.h"
-#import "MBProgressHUD.h"
+#import "ShowGaleryViewController.h"
+#import "UIPhotoGalleryView.h"
 
 @import Photos;
-#import "SDImageCache.h"
 #import "SDWebImageManager.h"
+#import "MBProgressHUD.h"
+#import "UIView+Toast.h"
 
-@interface ShowPhotoViewController ()
+@interface ShowGaleryViewController () <UIPhotoGalleryDataSource, UIPhotoGalleryDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgPresent;
-@property (strong, nonatomic) NSMutableArray *arrayPHAssetCollection;
+@property (weak, nonatomic) IBOutlet UIPhotoGalleryView *galeryView;
 @property PHFetchResult *pHFetchResultAlbum;
 
 @end
 
-@implementation ShowPhotoViewController
+@implementation ShowGaleryViewController
 
-#pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.topItem.title = @"";
-    self.title = [[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
+    self.galeryView.showsScrollIndicator = NO;
+    self.galeryView.peakSubView = YES;
     
-//    if (self.urlImage != nil) {
-//        [self.imgPresent setImageWithURL:self.urlImage];
-//    }else{
-        [self.imgPresent setImageWithURL:self.urlImageThum];
-//    }
+    self.galeryView.dataSource = self;
+    self.galeryView.delegate = self;
     
+    
+    self.galeryView.galleryMode = UIPhotoGalleryModeImageRemote;
+    [self.galeryView setInitialIndex:self.currentIndex];
     
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"
                                                                     style:UIBarButtonItemStyleDone target:self action:@selector(handleSaveButtonItem)];
     self.navigationItem.rightBarButtonItem = rightButton;
     
-    self.arrayPHAssetCollection = [[NSMutableArray alloc] init];
-    
     self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     
-    [self.pHFetchResultAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.arrayPHAssetCollection addObject:obj];
-    }];
 }
 
-#pragma mark - private method
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:NO];
+}
+
 
 - (void)handleSaveButtonItem {
     UIAlertController *alert =
-      [UIAlertController alertControllerWithTitle:@"Select album"
-                                          message:@""
-                                   preferredStyle:UIAlertControllerStyleAlert];
-    for (PHAssetCollection *album in self.arrayPHAssetCollection) {
-    UIAlertAction *action =
+    [UIAlertController alertControllerWithTitle:@"Select album"
+                                        message:@""
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    for (PHAssetCollection *album in self.pHFetchResultAlbum) {
+        UIAlertAction *action =
         [UIAlertAction actionWithTitle:album.localizedTitle
                                  style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action) {
-
-                                 [self saveImage:album];
-
+                                   
+                                   [self saveImage:album];
+                                   
                                }];
         [alert addAction:action];
-  }
-
-  UIAlertAction *cancel =
-      [UIAlertAction actionWithTitle:@"Cancel"
-                               style:UIAlertActionStyleDefault
-                             handler:nil];
-
-  [alert addAction:cancel];
-
-  [self presentViewController:alert animated:YES completion:nil];
+    }
+    
+    UIAlertAction *cancel =
+    [UIAlertAction actionWithTitle:@"Cancel"
+                             style:UIAlertActionStyleDefault
+                           handler:nil];
+    
+    [alert addAction:cancel];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)saveImage:(PHAssetCollection *)collection {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     SDWebImageManager *manager = [SDWebImageManager sharedManager];
-    [manager downloadImageWithURL:self.urlImage
+    [manager downloadImageWithURL:[self.arrayUrl objectAtIndex:self.currentIndex]
                           options:0
                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                              // progression tracking code
@@ -125,6 +118,34 @@
         });
         
     }];
+}
+
+#pragma mark - UIPhotoGalleryDataSource
+- (NSInteger)numberOfViewsInPhotoGallery:(UIPhotoGalleryView *)photoGallery{
+    return [self.arrayUrl count];
+}
+
+- (NSURL*)photoGallery:(UIPhotoGalleryView *)photoGallery remoteImageURLAtIndex:(NSInteger)index {
+    return [self.arrayUrl objectAtIndex:index];
+}
+
+#pragma mark - UIPhotoGalleryDelegate
+- (void)photoGallery:(UIPhotoGalleryView *)photoGallery didMoveToIndex:(NSInteger)index{
+    NSLog(@"didMoveToIndex %d currentindex:%d", index, photoGallery.currentIndex);
+    self.currentIndex = index;
+}
+
+- (IBAction)backAction:(id)sender {
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCATransitionFade];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+
 }
 
 @end

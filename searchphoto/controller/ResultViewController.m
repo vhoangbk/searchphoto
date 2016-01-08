@@ -14,6 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "ShowPhotoViewController.h"
 #import "TGRImageViewController.h"
+#import "ShowGaleryViewController.h"
 
 @interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
@@ -143,6 +144,17 @@
 //    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:image];
 //    [self presentViewController:viewController animated:YES completion:nil];
     
+//    NSMutableArray *arrayUrl = [[NSMutableArray alloc] init];
+//    for (ImageRecord *imageRecord in self.images) {
+//        [arrayUrl addObject:imageRecord.imageURL];
+//    }
+//    
+//    ShowGaleryViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowGaleryViewControllerIdentity"];
+//    
+//    showVC.arrayUrl = arrayUrl;
+//    showVC.currentIndex = indexPath.row;
+//    
+//    [self.navigationController pushViewController:showVC animated:YES];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
