@@ -19,23 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search photo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q6N-uY-QTt">
-                                <rect key="frame" x="11" y="30" width="285" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkM-t9-HBn">
-                                <rect key="frame" x="316" y="30" width="48" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="2hF-Lz-2R9"/>
-                                </constraints>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="pressesSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ymB-h0-kEG"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kWl-bi-nBu">
-                                <rect key="frame" x="-4" y="70" width="383" height="597"/>
+                                <rect key="frame" x="-4" y="74" width="383" height="593"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rtQ-cT-OJe">
                                     <size key="itemSize" width="100" height="100"/>
@@ -88,24 +73,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="X3c-dS-jU8">
+                                <rect key="frame" x="-4" y="20" width="387" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.122539656" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="dkM-t9-HBn" secondAttribute="trailing" constant="-5" id="0Ss-Bc-eMU"/>
-                            <constraint firstItem="q6N-uY-QTt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Gwa-6Z-oUr"/>
-                            <constraint firstItem="q6N-uY-QTt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-5" id="IpU-fb-2fY"/>
-                            <constraint firstItem="dkM-t9-HBn" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="REB-nA-1ga"/>
-                            <constraint firstItem="kWl-bi-nBu" firstAttribute="top" secondItem="q6N-uY-QTt" secondAttribute="bottom" constant="10" id="c3q-Jy-Q2q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X3c-dS-jU8" secondAttribute="trailing" constant="-24" id="J2K-wh-xIq"/>
+                            <constraint firstItem="X3c-dS-jU8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="SKn-Ij-SnM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kWl-bi-nBu" secondAttribute="trailing" constant="-20" id="cLe-pc-xlZ"/>
+                            <constraint firstItem="kWl-bi-nBu" firstAttribute="top" secondItem="X3c-dS-jU8" secondAttribute="bottom" constant="10" id="ikz-IF-BbP"/>
                             <constraint firstItem="kWl-bi-nBu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="rVR-Pn-VfH"/>
-                            <constraint firstItem="dkM-t9-HBn" firstAttribute="leading" secondItem="q6N-uY-QTt" secondAttribute="trailing" constant="20" id="w0i-Oy-Fzw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kWl-bi-nBu" secondAttribute="bottom" id="wk1-Cq-xOa"/>
+                            <constraint firstItem="X3c-dS-jU8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zoX-aA-S9n"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="collectionViewAlbum" destination="kWl-bi-nBu" id="Xw6-V3-yyG"/>
-                        <outlet property="tfSearch" destination="q6N-uY-QTt" id="gTv-km-cMt"/>
+                        <outlet property="searchBar" destination="X3c-dS-jU8" id="OHl-w4-JKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -248,47 +236,6 @@
             </objects>
             <point key="canvasLocation" x="728.5" y="348.5"/>
         </scene>
-        <!--Show Galery View Controller-->
-        <scene sceneID="gr0-11-gJ1">
-            <objects>
-                <viewController storyboardIdentifier="ShowGaleryViewControllerIdentity" id="aiC-YM-PVU" customClass="ShowGaleryViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="XNd-QL-iij"/>
-                        <viewControllerLayoutGuide type="bottom" id="r0K-96-YbH"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Bgw-Lt-9ca">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lIu-53-aTf" customClass="UIPhotoGalleryView">
-                                <rect key="frame" x="-4" y="64" width="383" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ix6-nR-c8c">
-                                <rect key="frame" x="164" y="319" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backAction:" destination="aiC-YM-PVU" eventType="touchUpInside" id="8fR-Ph-jlL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="lIu-53-aTf" secondAttribute="trailing" constant="-20" id="NKo-P9-9CQ"/>
-                            <constraint firstItem="r0K-96-YbH" firstAttribute="top" secondItem="lIu-53-aTf" secondAttribute="bottom" id="QW2-gX-Lb6"/>
-                            <constraint firstItem="lIu-53-aTf" firstAttribute="leading" secondItem="Bgw-Lt-9ca" secondAttribute="leadingMargin" constant="-20" id="lE3-nP-qea"/>
-                            <constraint firstItem="lIu-53-aTf" firstAttribute="top" secondItem="Bgw-Lt-9ca" secondAttribute="topMargin" constant="64" id="ltA-Vq-QTQ"/>
-                        </constraints>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <connections>
-                        <outlet property="galeryView" destination="lIu-53-aTf" id="DXL-pa-1Eu"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c9o-e7-FCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1186.5" y="-411.5"/>
-        </scene>
         <!--Show Photo View Controller-->
         <scene sceneID="taj-Ju-9vy">
             <objects>
@@ -332,6 +279,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder" width="64" height="64"/>
+        <image name="folder" width="729" height="728"/>
     </resources>
 </document>

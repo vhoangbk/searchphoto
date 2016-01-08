@@ -8,7 +8,6 @@
 
 #import "AlbumViewController.h"
 #import "ImageViewCell.h"
-#import "ShowPhotoAlbumViewController.h"
 #import "TGRImageViewController.h"
 
 @interface AlbumViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>

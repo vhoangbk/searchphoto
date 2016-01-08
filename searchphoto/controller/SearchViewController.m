@@ -18,12 +18,12 @@
 @import Photos;
 
 
-@interface SearchViewController () <UITextFieldDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver>
+@interface SearchViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UISearchBarDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *tfSearch;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
 @property PHFetchResult *pHFetchResultAlbum;
 @property PHImageManager *phImageManger;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -33,8 +33,6 @@
 #pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.tfSearch.delegate = self;
     
     self.phImageManger = [[PHImageManager alloc] init];
     
@@ -49,6 +47,8 @@
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
                         style:UIBarButtonItemStyleDone target:self action:@selector(handleAddButtonItem)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    
+    self.searchBar.delegate = self;
     
 }
 
@@ -75,19 +75,6 @@
 }
 
 #pragma mark - private method
-- (IBAction)pressesSearchButton:(UIButton*)sender{
-    ResultViewController *resultVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ResultViewControllerIdentity"];
-    NSString *strSearch = [self.tfSearch text];
-    if ([strSearch length] > 0) {
-        resultVC.strSearch = strSearch;
-        [self.navigationController pushViewController:resultVC animated:YES];
-    }else{
-        NSLog(@"[SearchViewController] pressesSearchButton() text nil");
-        [self.view makeToast:@"No input text to search"];
-    }
-    
-}
-
 - (void)handleAddButtonItem {
     // Prompt user from new album title.
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"New Album", @"") message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -118,16 +105,10 @@
     [self presentViewController:alertController animated:YES completion:NULL];
 }
 
-#pragma mark - UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-    [self.tfSearch resignFirstResponder];
-    return YES;
-}
-
 #pragma mark - UIResponsder
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [self.tfSearch resignFirstResponder];
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    [self.searchBar resignFirstResponder];
+//}
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -189,6 +170,31 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat size = (w-30)/2.0;
     return CGSizeMake(size, size);
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+//    ResultViewController *resultVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ResultViewControllerIdentity"];
+//    if ([searchBar.text length] > 0) {
+//        resultVC.strSearch = searchBar.text;
+//        [self.navigationController pushViewController:resultVC animated:YES];
+//    }else{
+//        [self.view makeToast:@"No input text to search"];
+//    }
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self searchPhoto:searchBar.text];
+}
+
+- (void) searchPhoto : (NSString*)strSearch{
+    ResultViewController *resultVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ResultViewControllerIdentity"];
+    if ([strSearch length] > 0) {
+        resultVC.strSearch = strSearch;
+        [self.navigationController pushViewController:resultVC animated:YES];
+    }else{
+        [self.view makeToast:@"No input text to search"];
+    }
 }
 
 

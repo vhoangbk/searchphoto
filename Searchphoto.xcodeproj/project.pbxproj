@@ -10,9 +10,6 @@
 		7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */; };
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
-		7F73DB451C3EB49200FBE3F3 /* UIPhotoGalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */; };
-		7F73DB461C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */; };
-		7F73DB471C3EB49200FBE3F3 /* UIPhotoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -23,7 +20,6 @@
 		7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1581C3AC94200171DFC /* BaseViewController.m */; };
 		7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15A1C3AC94200171DFC /* SearchViewController.m */; };
 		7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */; };
-		8816EBF11C3F52A9002A8BE3 /* ShowGaleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8816EBF01C3F52A9002A8BE3 /* ShowGaleryViewController.m */; };
 		88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CCB1C3B798C0087C206 /* MBProgressHUD.m */; };
 		88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD21C3B79EE0087C206 /* AFHTTPRequestOperation.m */; };
 		88275CE51C3B79EE0087C206 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD41C3B79EE0087C206 /* AFHTTPRequestOperationManager.m */; };
@@ -43,7 +39,6 @@
 		88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */; };
 		88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */; };
 		88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */; };
-		88D021661C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */; };
 		88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021771C3E500000CEB609 /* TGRImageViewController.m */; };
 		88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D021781C3E500000CEB609 /* TGRImageViewController.xib */; };
 		88D021A41C3E7A6000CEB609 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021841C3E7A6000CEB609 /* MKAnnotationView+WebCache.m */; };
@@ -74,12 +69,6 @@
 		7F6EF1151C3C319600F342F9 /* ImageSearching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearching.h; path = network/ImageSearching.h; sourceTree = "<group>"; };
 		7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewCell.h; path = view/ImageViewCell.h; sourceTree = "<group>"; };
 		7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewCell.m; path = view/ImageViewCell.m; sourceTree = "<group>"; };
-		7F73DB3F1C3EB49200FBE3F3 /* UIPhotoGalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoGalleryView.h; path = Third/UIPhotoGallery/UIPhotoGalleryView.h; sourceTree = "<group>"; };
-		7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoGalleryView.m; path = Third/UIPhotoGallery/UIPhotoGalleryView.m; sourceTree = "<group>"; };
-		7F73DB411C3EB49200FBE3F3 /* UIPhotoGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoGalleryViewController.h; path = Third/UIPhotoGallery/UIPhotoGalleryViewController.h; sourceTree = "<group>"; };
-		7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoGalleryViewController.m; path = Third/UIPhotoGallery/UIPhotoGalleryViewController.m; sourceTree = "<group>"; };
-		7F73DB431C3EB49200FBE3F3 /* UIPhotoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIPhotoItemView.h; path = Third/UIPhotoGallery/UIPhotoItemView.h; sourceTree = "<group>"; };
-		7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIPhotoItemView.m; path = Third/UIPhotoGallery/UIPhotoItemView.m; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
 		7FFDE1291C3AC27200171DFC /* Searchphoto.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchphoto.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,8 +87,6 @@
 		7FFDE15A1C3AC94200171DFC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = controller/SearchViewController.m; sourceTree = "<group>"; };
 		7FFDE15D1C3ACD7600171DFC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultViewController.h; path = controller/ResultViewController.h; sourceTree = "<group>"; };
 		7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = controller/ResultViewController.m; sourceTree = "<group>"; };
-		8816EBEF1C3F52A9002A8BE3 /* ShowGaleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowGaleryViewController.h; path = controller/ShowGaleryViewController.h; sourceTree = "<group>"; };
-		8816EBF01C3F52A9002A8BE3 /* ShowGaleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowGaleryViewController.m; path = controller/ShowGaleryViewController.m; sourceTree = "<group>"; };
 		88275CCA1C3B798C0087C206 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = third/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		88275CCB1C3B798C0087C206 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = third/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		88275CD11C3B79EE0087C206 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = Third/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -142,8 +129,6 @@
 		88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoViewController.h; path = controller/ShowPhotoViewController.h; sourceTree = "<group>"; };
 		88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoViewController.m; path = controller/ShowPhotoViewController.m; sourceTree = "<group>"; };
 		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
-		88D021641C3E1A7800CEB609 /* ShowPhotoAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoAlbumViewController.h; path = controller/ShowPhotoAlbumViewController.h; sourceTree = "<group>"; };
-		88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoAlbumViewController.m; path = controller/ShowPhotoAlbumViewController.m; sourceTree = "<group>"; };
 		88D021761C3E500000CEB609 /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGRImageViewController.h; path = Third/Vertigo/TGRImageViewController.h; sourceTree = "<group>"; };
 		88D021771C3E500000CEB609 /* TGRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TGRImageViewController.m; path = Third/Vertigo/TGRImageViewController.m; sourceTree = "<group>"; };
 		88D021781C3E500000CEB609 /* TGRImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TGRImageViewController.xib; path = Third/Vertigo/TGRImageViewController.xib; sourceTree = "<group>"; };
@@ -197,19 +182,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7F73DB3E1C3EB48700FBE3F3 /* UIPhotoGallery */ = {
-			isa = PBXGroup;
-			children = (
-				7F73DB3F1C3EB49200FBE3F3 /* UIPhotoGalleryView.h */,
-				7F73DB401C3EB49200FBE3F3 /* UIPhotoGalleryView.m */,
-				7F73DB411C3EB49200FBE3F3 /* UIPhotoGalleryViewController.h */,
-				7F73DB421C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m */,
-				7F73DB431C3EB49200FBE3F3 /* UIPhotoItemView.h */,
-				7F73DB441C3EB49200FBE3F3 /* UIPhotoItemView.m */,
-			);
-			name = UIPhotoGallery;
-			sourceTree = "<group>";
-		};
 		7FCF0FBA1C3ADE3E004CFB2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,10 +269,6 @@
 				88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */,
 				88F343551C3CD593002B5833 /* AlbumViewController.h */,
 				88F343561C3CD593002B5833 /* AlbumViewController.m */,
-				88D021641C3E1A7800CEB609 /* ShowPhotoAlbumViewController.h */,
-				88D021651C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m */,
-				8816EBEF1C3F52A9002A8BE3 /* ShowGaleryViewController.h */,
-				8816EBF01C3F52A9002A8BE3 /* ShowGaleryViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -319,7 +287,6 @@
 		88275CC81C3B78FE0087C206 /* Third */ = {
 			isa = PBXGroup;
 			children = (
-				7F73DB3E1C3EB48700FBE3F3 /* UIPhotoGallery */,
 				88D021821C3E7A4B00CEB609 /* SDWebImage */,
 				88D021751C3E4FF600CEB609 /* Vertigo */,
 				88F343511C3CAFE6002B5833 /* Toast */,
@@ -557,7 +524,6 @@
 				88275CE91C3B79EE0087C206 /* AFURLConnectionOperation.m in Sources */,
 				88275D031C3B7A0A0087C206 /* UIButton+AFNetworking.m in Sources */,
 				88D021AD1C3E7A6000CEB609 /* UIButton+WebCache.m in Sources */,
-				88D021661C3E1A7800CEB609 /* ShowPhotoAlbumViewController.m in Sources */,
 				88D021A91C3E7A6000CEB609 /* SDWebImageDownloader.m in Sources */,
 				88D021A51C3E7A6000CEB609 /* NSData+ImageContentType.m in Sources */,
 				88275D011C3B7A0A0087C206 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -571,16 +537,12 @@
 				88D021A71C3E7A6000CEB609 /* SDWebImageCompat.m in Sources */,
 				88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */,
 				88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */,
-				8816EBF11C3F52A9002A8BE3 /* ShowGaleryViewController.m in Sources */,
-				7F73DB451C3EB49200FBE3F3 /* UIPhotoGalleryView.m in Sources */,
 				88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */,
 				7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */,
 				7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */,
 				7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */,
-				7F73DB461C3EB49200FBE3F3 /* UIPhotoGalleryViewController.m in Sources */,
 				88D021B21C3E7A6000CEB609 /* UIImageView+WebCache.m in Sources */,
 				7FFDE12E1C3AC27200171DFC /* main.m in Sources */,
-				7F73DB471C3EB49200FBE3F3 /* UIPhotoItemView.m in Sources */,
 				88275D021C3B7A0A0087C206 /* UIAlertView+AFNetworking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

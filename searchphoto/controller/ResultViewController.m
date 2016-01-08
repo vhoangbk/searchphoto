@@ -14,13 +14,12 @@
 #import "UIImageView+AFNetworking.h"
 #import "ShowPhotoViewController.h"
 #import "TGRImageViewController.h"
-#import "ShowGaleryViewController.h"
 
 @interface ResultViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionImage;
 @property (nonatomic, strong) NSMutableArray *images;
-@property (strong, nonatomic) NSArray *cellColors;
+//@property (strong, nonatomic) NSArray *cellColors;
 
 @end
 
@@ -40,8 +39,8 @@
     
     [self loadImagesWithOffset:0];
     
-    self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
-                         [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
+    //self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
+     //                    [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
     
     
 }
@@ -106,8 +105,7 @@
     
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
     
-    cell.imageView.backgroundColor = self.cellColors[indexPath.row % [self.cellColors count]];
-    [cell.imageView setImageWithURL:imageRecord.thumbnailURL];
+    [cell.imageView setImageWithURL:imageRecord.thumbnailURL placeholderImage:[UIImage imageNamed:@"folder"]];
     
     // Check if this has been the last item, if so start loading more images...
     if (indexPath.row == [self.images count] - 1) {
@@ -138,17 +136,10 @@
     
     [self.navigationController pushViewController:showVC animated:YES];
     
-//    ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
-//    NSData *data = [NSData dataWithContentsOfURL:imageRecord.thumbnailURL];
-//    UIImage *image = [UIImage imageWithData:data];
-//    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:image];
-//    [self presentViewController:viewController animated:YES completion:nil];
-    
 //    NSMutableArray *arrayUrl = [[NSMutableArray alloc] init];
 //    for (ImageRecord *imageRecord in self.images) {
 //        [arrayUrl addObject:imageRecord.imageURL];
 //    }
-//    
 //    ShowGaleryViewController *showVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ShowGaleryViewControllerIdentity"];
 //    
 //    showVC.arrayUrl = arrayUrl;
