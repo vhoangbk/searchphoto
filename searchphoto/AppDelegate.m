@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SearchViewController.h"
 #import "Const.h"
+#import "PhotoViewController.h"
 
 static NSString *kStoreName;
 
@@ -21,13 +22,26 @@ static NSString *kStoreName;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    SearchViewController *topVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchViewControllerIdentity"];
+    SearchViewController *albumVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchViewControllerIdentity"];
+    PhotoViewController *photoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PhotoViewControllerIdentity"];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:topVC];
+    UINavigationController *navVC1 = [[UINavigationController alloc] initWithRootViewController:photoVC];
+    UINavigationController *navVC2 = [[UINavigationController alloc] initWithRootViewController:albumVC];
+    
+    albumVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Albums" image:[UIImage imageNamed:@"photo"] tag:1];
+    photoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Photos" image:[UIImage imageNamed:@"photo"] tag:2];
+    
+    NSArray *arrayVC = [NSArray arrayWithObjects:navVC1, navVC2, nil];
+    
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    tabbarController.viewControllers = arrayVC;
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+    navigationController.navigationBarHidden = YES;
     self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFBingAPIClient" }];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

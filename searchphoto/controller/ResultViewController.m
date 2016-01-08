@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionImage;
 @property (nonatomic, strong) NSMutableArray *images;
-//@property (strong, nonatomic) NSArray *cellColors;
 
 @end
 
@@ -38,10 +37,6 @@
     [self.collectionImage registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"ImageViewCellIdentity"];
     
     [self loadImagesWithOffset:0];
-    
-    //self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
-     //                    [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
-    
     
 }
 

@@ -20,6 +20,7 @@
 		7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1581C3AC94200171DFC /* BaseViewController.m */; };
 		7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15A1C3AC94200171DFC /* SearchViewController.m */; };
 		7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */; };
+		8816EBF41C3F9F06002A8BE3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */; };
 		88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CCB1C3B798C0087C206 /* MBProgressHUD.m */; };
 		88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD21C3B79EE0087C206 /* AFHTTPRequestOperation.m */; };
 		88275CE51C3B79EE0087C206 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD41C3B79EE0087C206 /* AFHTTPRequestOperationManager.m */; };
@@ -87,6 +88,8 @@
 		7FFDE15A1C3AC94200171DFC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = controller/SearchViewController.m; sourceTree = "<group>"; };
 		7FFDE15D1C3ACD7600171DFC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultViewController.h; path = controller/ResultViewController.h; sourceTree = "<group>"; };
 		7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = controller/ResultViewController.m; sourceTree = "<group>"; };
+		8816EBF21C3F9F06002A8BE3 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = controller/PhotoViewController.h; sourceTree = "<group>"; };
+		8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = controller/PhotoViewController.m; sourceTree = "<group>"; };
 		88275CCA1C3B798C0087C206 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = third/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
 		88275CCB1C3B798C0087C206 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = third/MBProgressHUD/MBProgressHUD.m; sourceTree = "<group>"; };
 		88275CD11C3B79EE0087C206 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = Third/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */,
 				88F343551C3CD593002B5833 /* AlbumViewController.h */,
 				88F343561C3CD593002B5833 /* AlbumViewController.m */,
+				8816EBF21C3F9F06002A8BE3 /* PhotoViewController.h */,
+				8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 				88D021A71C3E7A6000CEB609 /* SDWebImageCompat.m in Sources */,
 				88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */,
 				88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */,
+				8816EBF41C3F9F06002A8BE3 /* PhotoViewController.m in Sources */,
 				88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */,
 				7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */,
 				7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */,

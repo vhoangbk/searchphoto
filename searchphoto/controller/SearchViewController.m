@@ -160,7 +160,10 @@
             showVC.album = collection.localizedTitle;
             [self.navigationController pushViewController:showVC animated:YES];
         }else{
-            [self.view makeToast:@"Album empty"];
+            [self.view makeToast:@"Album empty"
+                        duration:3.0
+                        position:CSToastPositionCenter
+                           style:nil];
         }
 }
 
