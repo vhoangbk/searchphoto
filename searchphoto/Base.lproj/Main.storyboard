@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Search View Controller-->
+        <!--Album View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="SearchViewControllerIdentity" id="BYZ-38-t0r" customClass="SearchViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumViewControllerIdentity" id="BYZ-38-t0r" customClass="AlbumViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -151,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="291.5" y="1131.5"/>
         </scene>
-        <!--Album View Controller-->
+        <!--Album Detail View Controller-->
         <scene sceneID="UOe-kk-FGr">
             <objects>
-                <viewController storyboardIdentifier="AlbumViewControllerIdentity" id="LEH-Sd-m1T" customClass="AlbumViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbumDetailViewControllerIdentity" id="LEH-Sd-m1T" customClass="AlbumDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RTf-tI-C2p"/>
                         <viewControllerLayoutGuide type="bottom" id="4KJ-gE-w6a"/>
@@ -202,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="728.5" y="1131.5"/>
         </scene>
-        <!--Show Photo Album View Controller-->
+        <!--Show Photo Album Detail View Controller-->
         <scene sceneID="nhI-mm-XO4">
             <objects>
-                <viewController storyboardIdentifier="ShowPhotoAlbumViewControllerIdentity" id="3d0-YP-LMA" customClass="ShowPhotoAlbumViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowPhotoAlbumDetailViewControllerIdentity" id="3d0-YP-LMA" customClass="ShowPhotoAlbumDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Nda-tD-eHZ"/>
                         <viewControllerLayoutGuide type="bottom" id="JSP-Ce-Opn"/>
@@ -236,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="1186.5" y="1131.5"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="z5T-gT-xiO">
             <objects>
-                <viewController storyboardIdentifier="ResultViewControllerIdentity" id="HRs-m5-Xtj" customClass="ResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewControllerIdentity" id="HRs-m5-Xtj" customClass="SearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pmq-2U-8ed"/>
                         <viewControllerLayoutGuide type="bottom" id="tqE-Uk-PyL"/>
@@ -287,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="728.5" y="348.5"/>
         </scene>
-        <!--Show Photo View Controller-->
+        <!--Search Detail View Controller-->
         <scene sceneID="taj-Ju-9vy">
             <objects>
-                <viewController storyboardIdentifier="ShowPhotoViewControllerIdentity" id="yd9-GE-9Qy" customClass="ShowPhotoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchDetailViewControllerIdentity" id="yd9-GE-9Qy" customClass="SearchDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KdJ-IT-s2K"/>
                         <viewControllerLayoutGuide type="bottom" id="Mqn-uG-99T"/>

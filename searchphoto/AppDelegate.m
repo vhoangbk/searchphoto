@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "SearchViewController.h"
+#import "AlbumViewController.h"
 #import "Const.h"
 #import "PhotoViewController.h"
 
-static NSString *kStoreName;
+static NSString *kSearchVCIdentity = @"AlbumViewControllerIdentity";
+static NSString *kPhotoVCIdentity = @"PhotoViewControllerIdentity";
 
 @interface AppDelegate ()
 
@@ -22,46 +23,25 @@ static NSString *kStoreName;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    SearchViewController *albumVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"SearchViewControllerIdentity"];
-    PhotoViewController *photoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"PhotoViewControllerIdentity"];
-    
-    UINavigationController *navVC1 = [[UINavigationController alloc] initWithRootViewController:photoVC];
+    AlbumViewController *albumVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kSearchVCIdentity];
+    albumVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"album", @"") image:[UIImage imageNamed:@"photo"] tag:1];
     UINavigationController *navVC2 = [[UINavigationController alloc] initWithRootViewController:albumVC];
     
-    albumVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Albums" image:[UIImage imageNamed:@"photo"] tag:1];
-    photoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Photos" image:[UIImage imageNamed:@"photo"] tag:2];
-    
-    NSArray *arrayVC = [NSArray arrayWithObjects:navVC1, navVC2, nil];
+    PhotoViewController *photoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kPhotoVCIdentity];
+    photoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"photo", @"") image:[UIImage imageNamed:@"photo"] tag:2];
+    UINavigationController *navVC1 = [[UINavigationController alloc] initWithRootViewController:photoVC];
+
     
     UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    tabbarController.viewControllers = arrayVC;
+    tabbarController.viewControllers = [NSArray arrayWithObjects:navVC1, navVC2, nil];
     
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
-    navigationController.navigationBarHidden = YES;
-    self.window.rootViewController = navigationController;
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
+//    navigationController.navigationBarHidden = YES;
+    self.window.rootViewController = tabbarController;
     
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{ @"search_provider": @"AFBingAPIClient" }];
     [self.window makeKeyAndVisible];
     
     return YES;
-}
-
-- (void) createStoreAlbum{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:kStoreName];
-    
-    NSError * error = nil;
-    [[NSFileManager defaultManager] createDirectoryAtPath:documentsPath
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:&error];
-    if (error != nil) {
-        NSLog(@"error creating directory: %@", error);
-        [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kStoreKey];
-    }else{
-        [[NSUserDefaults standardUserDefaults] setObject:documentsPath forKey:kStoreKey];
-    }
-    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -1,5 +1,5 @@
 //
-//  ShowPhotoViewController.h
+//  SearchDetailViewController.h
 //  Searchphoto
 //
 //  Created by paraline on 1/5/16.
@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface ShowPhotoViewController : BaseViewController
+@interface SearchDetailViewController : BaseViewController
 
 @property NSURL *urlImageThum;
 @property NSURL *urlImage;

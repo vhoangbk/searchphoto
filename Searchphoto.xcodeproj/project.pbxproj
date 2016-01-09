@@ -10,6 +10,7 @@
 		7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */; };
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
+		7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F6FC9C81C41267700344BE7 /* Localizable.strings */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -18,8 +19,8 @@
 		7FFDE13C1C3AC27200171DFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FFDE13A1C3AC27200171DFC /* LaunchScreen.storyboard */; };
 		7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE14D1C3AC88800171DFC /* Utils.m */; };
 		7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1581C3AC94200171DFC /* BaseViewController.m */; };
-		7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15A1C3AC94200171DFC /* SearchViewController.m */; };
-		7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */; };
+		7FFDE15C1C3AC94200171DFC /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15A1C3AC94200171DFC /* AlbumViewController.m */; };
+		7FFDE15F1C3ACD7600171DFC /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE15E1C3ACD7600171DFC /* SearchViewController.m */; };
 		8816EBF41C3F9F06002A8BE3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */; };
 		88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CCB1C3B798C0087C206 /* MBProgressHUD.m */; };
 		88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD21C3B79EE0087C206 /* AFHTTPRequestOperation.m */; };
@@ -39,7 +40,7 @@
 		88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFB1C3B7A0A0087C206 /* UIProgressView+AFNetworking.m */; };
 		88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */; };
 		88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */; };
-		88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */; };
+		88275D141C3BA5C70087C206 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* SearchDetailViewController.m */; };
 		88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021771C3E500000CEB609 /* TGRImageViewController.m */; };
 		88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D021781C3E500000CEB609 /* TGRImageViewController.xib */; };
 		88D021A41C3E7A6000CEB609 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021841C3E7A6000CEB609 /* MKAnnotationView+WebCache.m */; };
@@ -59,7 +60,7 @@
 		88D021B21C3E7A6000CEB609 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021A11C3E7A6000CEB609 /* UIImageView+WebCache.m */; };
 		88D021B31C3E7A6000CEB609 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021A31C3E7A6000CEB609 /* UIView+WebCacheOperation.m */; };
 		88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343531C3CAFF2002B5833 /* UIView+Toast.m */; };
-		88F343571C3CD593002B5833 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* AlbumViewController.m */; };
+		88F343571C3CD593002B5833 /* AlbumDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88F343561C3CD593002B5833 /* AlbumDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,9 @@
 		7F6EF1151C3C319600F342F9 /* ImageSearching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageSearching.h; path = network/ImageSearching.h; sourceTree = "<group>"; };
 		7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewCell.h; path = view/ImageViewCell.h; sourceTree = "<group>"; };
 		7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewCell.m; path = view/ImageViewCell.m; sourceTree = "<group>"; };
+		7F6FC9C91C4126A900344BE7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F6FC9CB1C4126F900344BE7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7F6FC9CC1C41270F00344BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
 		7FFDE1291C3AC27200171DFC /* Searchphoto.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchphoto.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,10 +88,10 @@
 		7FFDE14D1C3AC88800171DFC /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = utils/Utils.m; sourceTree = "<group>"; };
 		7FFDE1571C3AC94200171DFC /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = controller/BaseViewController.h; sourceTree = "<group>"; };
 		7FFDE1581C3AC94200171DFC /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = controller/BaseViewController.m; sourceTree = "<group>"; };
-		7FFDE1591C3AC94200171DFC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = controller/SearchViewController.h; sourceTree = "<group>"; };
-		7FFDE15A1C3AC94200171DFC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = controller/SearchViewController.m; sourceTree = "<group>"; };
-		7FFDE15D1C3ACD7600171DFC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResultViewController.h; path = controller/ResultViewController.h; sourceTree = "<group>"; };
-		7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResultViewController.m; path = controller/ResultViewController.m; sourceTree = "<group>"; };
+		7FFDE1591C3AC94200171DFC /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = controller/AlbumViewController.h; sourceTree = "<group>"; };
+		7FFDE15A1C3AC94200171DFC /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = controller/AlbumViewController.m; sourceTree = "<group>"; };
+		7FFDE15D1C3ACD7600171DFC /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = controller/SearchViewController.h; sourceTree = "<group>"; };
+		7FFDE15E1C3ACD7600171DFC /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = controller/SearchViewController.m; sourceTree = "<group>"; };
 		8816EBF21C3F9F06002A8BE3 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = controller/PhotoViewController.h; sourceTree = "<group>"; };
 		8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = controller/PhotoViewController.m; sourceTree = "<group>"; };
 		88275CCA1C3B798C0087C206 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = third/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -129,8 +133,8 @@
 		88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIRefreshControl+AFNetworking.m"; path = "Third/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		88275CFE1C3B7A0A0087C206 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "Third/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+AFNetworking.m"; path = "Third/AFNetworking/UIKit+AFNetworking/UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShowPhotoViewController.h; path = controller/ShowPhotoViewController.h; sourceTree = "<group>"; };
-		88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShowPhotoViewController.m; path = controller/ShowPhotoViewController.m; sourceTree = "<group>"; };
+		88275D121C3BA5C70087C206 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailViewController.h; path = controller/SearchDetailViewController.h; sourceTree = "<group>"; };
+		88275D131C3BA5C70087C206 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailViewController.m; path = controller/SearchDetailViewController.m; sourceTree = "<group>"; };
 		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
 		88D021761C3E500000CEB609 /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGRImageViewController.h; path = Third/Vertigo/TGRImageViewController.h; sourceTree = "<group>"; };
 		88D021771C3E500000CEB609 /* TGRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TGRImageViewController.m; path = Third/Vertigo/TGRImageViewController.m; sourceTree = "<group>"; };
@@ -170,8 +174,8 @@
 		88D021A31C3E7A6000CEB609 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "Third/SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		88F343521C3CAFF2002B5833 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Toast.h"; path = "Third/Toast/UIView+Toast.h"; sourceTree = "<group>"; };
 		88F343531C3CAFF2002B5833 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Third/Toast/UIView+Toast.m"; sourceTree = "<group>"; };
-		88F343551C3CD593002B5833 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumViewController.h; path = controller/AlbumViewController.h; sourceTree = "<group>"; };
-		88F343561C3CD593002B5833 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumViewController.m; path = controller/AlbumViewController.m; sourceTree = "<group>"; };
+		88F343551C3CD593002B5833 /* AlbumDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumDetailViewController.h; path = controller/AlbumDetailViewController.h; sourceTree = "<group>"; };
+		88F343561C3CD593002B5833 /* AlbumDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumDetailViewController.m; path = controller/AlbumDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				7FFDE12D1C3AC27200171DFC /* main.m */,
+				7F6FC9C81C41267700344BE7 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,16 +269,16 @@
 			children = (
 				7FFDE1571C3AC94200171DFC /* BaseViewController.h */,
 				7FFDE1581C3AC94200171DFC /* BaseViewController.m */,
-				7FFDE1591C3AC94200171DFC /* SearchViewController.h */,
-				7FFDE15A1C3AC94200171DFC /* SearchViewController.m */,
-				7FFDE15D1C3ACD7600171DFC /* ResultViewController.h */,
-				7FFDE15E1C3ACD7600171DFC /* ResultViewController.m */,
-				88275D121C3BA5C70087C206 /* ShowPhotoViewController.h */,
-				88275D131C3BA5C70087C206 /* ShowPhotoViewController.m */,
-				88F343551C3CD593002B5833 /* AlbumViewController.h */,
-				88F343561C3CD593002B5833 /* AlbumViewController.m */,
 				8816EBF21C3F9F06002A8BE3 /* PhotoViewController.h */,
 				8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */,
+				7FFDE1591C3AC94200171DFC /* AlbumViewController.h */,
+				7FFDE15A1C3AC94200171DFC /* AlbumViewController.m */,
+				7FFDE15D1C3ACD7600171DFC /* SearchViewController.h */,
+				7FFDE15E1C3ACD7600171DFC /* SearchViewController.m */,
+				88275D121C3BA5C70087C206 /* SearchDetailViewController.h */,
+				88275D131C3BA5C70087C206 /* SearchDetailViewController.m */,
+				88F343551C3CD593002B5833 /* AlbumDetailViewController.h */,
+				88F343561C3CD593002B5833 /* AlbumDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -471,6 +476,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 7FFDE1201C3AC27200171DFC;
 			productRefGroup = 7FFDE12A1C3AC27200171DFC /* Products */;
@@ -487,6 +493,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */,
 				7FFDE13C1C3AC27200171DFC /* LaunchScreen.storyboard in Resources */,
 				7FFDE1391C3AC27200171DFC /* Assets.xcassets in Resources */,
 				88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */,
@@ -502,7 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */,
-				7FFDE15F1C3ACD7600171DFC /* ResultViewController.m in Sources */,
+				7FFDE15F1C3ACD7600171DFC /* SearchViewController.m in Sources */,
 				7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */,
 				88275D001C3B7A0A0087C206 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				88275CEC1C3B79EE0087C206 /* AFURLSessionManager.m in Sources */,
@@ -510,12 +517,12 @@
 				88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */,
 				88275CE71C3B79EE0087C206 /* AFNetworkReachabilityManager.m in Sources */,
 				7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */,
-				7FFDE15C1C3AC94200171DFC /* SearchViewController.m in Sources */,
-				88275D141C3BA5C70087C206 /* ShowPhotoViewController.m in Sources */,
+				7FFDE15C1C3AC94200171DFC /* AlbumViewController.m in Sources */,
+				88275D141C3BA5C70087C206 /* SearchDetailViewController.m in Sources */,
 				88D021B31C3E7A6000CEB609 /* UIView+WebCacheOperation.m in Sources */,
 				88275D041C3B7A0A0087C206 /* UIImageView+AFNetworking.m in Sources */,
 				88D021A81C3E7A6000CEB609 /* SDWebImageDecoder.m in Sources */,
-				88F343571C3CD593002B5833 /* AlbumViewController.m in Sources */,
+				88F343571C3CD593002B5833 /* AlbumDetailViewController.m in Sources */,
 				88D021AB1C3E7A6000CEB609 /* SDWebImageManager.m in Sources */,
 				88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */,
 				88275CEB1C3B79EE0087C206 /* AFURLResponseSerialization.m in Sources */,
@@ -556,6 +563,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7F6FC9C81C41267700344BE7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F6FC9C91C4126A900344BE7 /* ja */,
+				7F6FC9CB1C4126F900344BE7 /* en */,
+				7F6FC9CC1C41270F00344BE7 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		7FFDE1351C3AC27200171DFC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

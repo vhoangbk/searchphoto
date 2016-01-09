@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *kStoreName = @"SearchPhoto";
-
-static NSString *kStoreKey = @"search_photo";
-
 @interface Const : NSObject
 
 @end
