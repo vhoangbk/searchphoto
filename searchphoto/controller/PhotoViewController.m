@@ -11,8 +11,9 @@
 
 @import Photos;
 #import "AppDelegate.h"
+#import "TGRImageViewController.h"
 
-@interface PhotoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate>
+@interface PhotoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, PHPhotoLibraryChangeObserver>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *photoCollection;
 @property PHFetchResult *allPhotosResult;
@@ -29,8 +30,19 @@
     
     self.allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
     [self.photoCollection registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"PhotoCellIdentity"];
+    
+    [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.title = NSLocalizedString(@"all_photo", @"");
+}
+
+- (void)dealloc {
+    [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
+}
+
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
 }
@@ -58,6 +70,26 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat size = (w-50)/4.0;
     return CGSizeMake(size, size);
+}
+
+#pragma mark - PHPhotoLibraryChangeObserver
+- (void)photoLibraryDidChange:(PHChange *)changeInstance {
+//    PHFetchResultChangeDetails *collectionChanges =
+//    [changeInstance changeDetailsForFetchResult:self.self.pHFetchResultAlbum];
+//    if (collectionChanges == nil) {
+//        return;
+//    }
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        self.pHFetchResultAlbum = [collectionChanges fetchResultAfterChanges];
+//        [self.collectionViewAlbum reloadData];
+//    });
+}
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

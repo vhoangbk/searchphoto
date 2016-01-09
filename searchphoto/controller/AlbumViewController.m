@@ -17,7 +17,7 @@
 
 @import Photos;
 
-static NSString *kAlbumIdentity = @"AlbumIdentity";
+static NSString *kAlbumCellIdentity = @"AlbumCellIdentity";
 static NSString *kAlbumDetailViewControllerIdentity = @"AlbumDetailViewControllerIdentity";
 static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity";
 
@@ -46,11 +46,6 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
 
     [[PHPhotoLibrary sharedPhotoLibrary] registerChangeObserver:self];
-    
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"add", @"")
-                        style:UIBarButtonItemStyleDone target:self action:@selector(handleAddButtonItem)];
-    self.navigationItem.rightBarButtonItem = rightButton;
     
     self.searchBar.delegate = self;
     
@@ -89,7 +84,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     }
 }
 
-- (void)handleAddButtonItem {
+- (IBAction)handleAddButtonItem:(id)sender {
     // Prompt user from new album title.
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"new_album", @"") message:nil preferredStyle:UIAlertControllerStyleAlert];
     
@@ -119,6 +114,10 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     [self presentViewController:alertController animated:YES completion:NULL];
 }
 
+- (IBAction)handleEditButtonItem:(id)sender {
+    NSLog(@"handleEditButtonItem");
+}
+
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -131,7 +130,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath {
   AlbumCollectionViewCell *cell =
-      [collectionView dequeueReusableCellWithReuseIdentifier:kAlbumIdentity
+      [collectionView dequeueReusableCellWithReuseIdentifier:kAlbumCellIdentity
                                                 forIndexPath:indexPath];
 
   PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];

@@ -5,3 +5,33 @@
   Created by Hoang Nguyen on 1/9/16.
   Copyright © 2016 Hoang Nguyen. All rights reserved.
 */
+
+"search_photo" = "Search Photo";
+
+"album" = "Albums";
+
+"photo" = "Photos";
+
+"add" = "Add";
+
+"new_album" = "New Album";
+
+"album_name" = "Album name";
+
+"cancel" = "Cancel";
+
+"create" = "Create";
+
+"album_empty" = "Album empty";
+
+"no_input_text_to_search" = "No input text to search";
+
+"save" = "Save";
+
+"select_album" = "Select album";
+
+"add_photo_sucess" = "Add photo sucess";
+
+"add_photo_error" = "Add photo error";
+
+"all_photo" = "All Photo";

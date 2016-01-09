@@ -44,11 +44,6 @@
         }
     }];
     
-    
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"save", @"")
-                                                                    style:UIBarButtonItemStyleDone target:self action:@selector(handleSaveButtonItem)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-    
     self.arrayPHAssetCollection = [[NSMutableArray alloc] init];
     
     self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
@@ -60,7 +55,7 @@
 
 #pragma mark - private method
 
-- (void)handleSaveButtonItem {
+- (IBAction)handleSaveButtonItem:(id)sender {
     UIAlertController *alert =
     [UIAlertController alertControllerWithTitle:NSLocalizedString(@"select_album", @"")
                                           message:@""

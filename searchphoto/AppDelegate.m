@@ -23,23 +23,21 @@ static NSString *kPhotoVCIdentity = @"PhotoViewControllerIdentity";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    AlbumViewController *albumVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kSearchVCIdentity];
-    albumVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"album", @"") image:[UIImage imageNamed:@"photo"] tag:1];
-    UINavigationController *navVC2 = [[UINavigationController alloc] initWithRootViewController:albumVC];
-    
-    PhotoViewController *photoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kPhotoVCIdentity];
-    photoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"photo", @"") image:[UIImage imageNamed:@"photo"] tag:2];
-    UINavigationController *navVC1 = [[UINavigationController alloc] initWithRootViewController:photoVC];
-
-    
-    UITabBarController *tabbarController = [[UITabBarController alloc] init];
-    tabbarController.viewControllers = [NSArray arrayWithObjects:navVC1, navVC2, nil];
-    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabbarController];
-//    navigationController.navigationBarHidden = YES;
-    self.window.rootViewController = tabbarController;
-    
-    [self.window makeKeyAndVisible];
+//    AlbumViewController *albumVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kSearchVCIdentity];
+//    albumVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"album", @"") image:[UIImage imageNamed:@"photo"] tag:1];
+//    UINavigationController *navVC2 = [[UINavigationController alloc] initWithRootViewController:albumVC];
+//    
+//    PhotoViewController *photoVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kPhotoVCIdentity];
+//    photoVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"photo", @"") image:[UIImage imageNamed:@"photo"] tag:2];
+//    UINavigationController *navVC1 = [[UINavigationController alloc] initWithRootViewController:photoVC];
+//
+//    
+//    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+//    tabbarController.viewControllers = [NSArray arrayWithObjects:navVC1, navVC2, nil];
+//    
+//    self.window.rootViewController = tabbarController;
+//    
+//    [self.window makeKeyAndVisible];
     
     return YES;
 }
