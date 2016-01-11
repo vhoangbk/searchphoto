@@ -28,6 +28,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 @property PHFetchResult *pHFetchResultAlbum;
 @property PHImageManager *phImageManger;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property BOOL isEdit;
 
 @end
 
@@ -37,6 +38,8 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 #pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.isEdit = NO;
     
     self.phImageManger = [[PHImageManager alloc] init];
     
@@ -109,6 +112,9 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
                 NSLog(@"Error creating album: %@", error);
             }
         }];
+        
+        
+        
     }]];
     
     [self presentViewController:alertController animated:YES completion:NULL];
@@ -116,6 +122,23 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 
 - (IBAction)handleEditButtonItem:(id)sender {
     NSLog(@"handleEditButtonItem");
+    self.isEdit = YES;
+    [self.collectionViewAlbum reloadData];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+      target:self
+      action:@selector(handleDoneButtonItem)];
+}
+
+- (void)handleDoneButtonItem{
+    self.isEdit = NO;
+    [self.collectionViewAlbum reloadData];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                              initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                              target:self
+                                              action:@selector(handleEditButtonItem:)];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -132,10 +155,24 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
   AlbumCollectionViewCell *cell =
       [collectionView dequeueReusableCellWithReuseIdentifier:kAlbumCellIdentity
                                                 forIndexPath:indexPath];
+    [cell initDelegate];
 
   PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];
+    
+    cell.collection = self.pHFetchResultAlbum[indexPath.row];
 
   cell.lbName.text = collection.localizedTitle;
+    [cell.tfName setText:collection.localizedTitle];
+    cell.btnDelete.tag = indexPath.row;
+    
+    if(self.isEdit){
+        cell.btnDelete.hidden = NO;
+        [cell.tfName setEnabled:YES];
+        
+    }else{
+        cell.btnDelete.hidden = YES;
+        [cell.tfName setEnabled:NO];
+    }
 
   PHFetchResult *assetsFetchResult =
       [PHAsset fetchAssetsInAssetCollection:collection options:nil];
@@ -187,5 +224,6 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self searchPhoto:searchBar.text];
 }
+
 
 @end

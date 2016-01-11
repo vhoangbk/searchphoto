@@ -74,15 +74,16 @@
 
 #pragma mark - PHPhotoLibraryChangeObserver
 - (void)photoLibraryDidChange:(PHChange *)changeInstance {
-//    PHFetchResultChangeDetails *collectionChanges =
-//    [changeInstance changeDetailsForFetchResult:self.self.pHFetchResultAlbum];
-//    if (collectionChanges == nil) {
-//        return;
-//    }
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.pHFetchResultAlbum = [collectionChanges fetchResultAfterChanges];
-//        [self.collectionViewAlbum reloadData];
-//    });
+    NSLog(@"photoLibraryDidChange");
+    PHFetchResultChangeDetails *photoChanges =
+    [changeInstance changeDetailsForFetchResult:self.allPhotosResult];
+    if (photoChanges == nil) {
+        return;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.allPhotosResult = [photoChanges fetchResultAfterChanges];
+        [self.photoCollection reloadData];
+    });
 }
 
 #pragma mark - UICollectionViewDelegate

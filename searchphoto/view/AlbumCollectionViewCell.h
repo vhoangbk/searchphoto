@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumCollectionViewCell : UICollectionViewCell
+@import Photos;
+
+@interface AlbumCollectionViewCell : UICollectionViewCell <UITextFieldDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *imgAlbum;
+
 @property (nonatomic, weak) IBOutlet UILabel *lbName;
+
+@property (weak, nonatomic) IBOutlet UITextField *tfName;
+
+@property (weak, nonatomic) IBOutlet UIButton *btnDelete;
+
+@property PHAsset *collection;
+
+- (void) initDelegate;
 
 @end

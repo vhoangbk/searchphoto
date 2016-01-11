@@ -43,33 +43,78 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" translatesAutoresizingMaskIntoConstraints="NO" id="aJf-M9-YPn">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="127"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="120"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tVJ-PX-Eru">
                                                     <rect key="frame" x="0.0" y="129" width="150" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="6FG-28-MS9"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="dog" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s95-m8-jYr">
+                                                    <rect key="frame" x="0.0" y="120" width="150" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="7ha-AD-kly"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVo-Ti-yaE">
+                                                    <rect key="frame" x="18" y="8" width="46" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="46" id="eh2-CZ-2L5"/>
+                                                        <constraint firstAttribute="height" constant="30" id="iLA-wM-OfN"/>
+                                                        <constraint firstAttribute="width" constant="45" id="nmc-KK-KRK"/>
+                                                    </constraints>
+                                                    <state key="normal" image="delete"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="nmc-KK-KRK"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <connections>
+                                                        <action selector="deleteAlbum:" destination="7xW-ak-c6V" eventType="touchUpInside" id="qof-6H-uXM"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="aJf-M9-YPn" firstAttribute="leading" secondItem="7xW-ak-c6V" secondAttribute="leadingMargin" constant="-8" id="2Tr-km-N9o"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="s95-m8-jYr" secondAttribute="trailing" constant="-8" id="9F9-UO-xtX"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="aJf-M9-YPn" secondAttribute="trailing" constant="-8" id="A0X-gc-ywq"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="aJf-M9-YPn" secondAttribute="trailing" constant="-8" id="CAU-ar-g0P"/>
+                                            <constraint firstItem="s95-m8-jYr" firstAttribute="leading" secondItem="7xW-ak-c6V" secondAttribute="leadingMargin" constant="-8" id="D1P-GK-LP3"/>
                                             <constraint firstItem="aJf-M9-YPn" firstAttribute="top" secondItem="7xW-ak-c6V" secondAttribute="topMargin" constant="-8" id="Ims-lU-o9q"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="tVJ-PX-Eru" secondAttribute="bottom" constant="-8" id="LHA-Kb-WtB"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="tVJ-PX-Eru" secondAttribute="trailing" constant="-8" id="QAu-LN-YBB"/>
-                                            <constraint firstItem="tVJ-PX-Eru" firstAttribute="leading" secondItem="7xW-ak-c6V" secondAttribute="leadingMargin" constant="-8" id="bSX-yV-pBq"/>
-                                            <constraint firstItem="tVJ-PX-Eru" firstAttribute="top" secondItem="aJf-M9-YPn" secondAttribute="bottom" constant="2" id="nJ7-el-nEE"/>
+                                            <constraint firstItem="aJf-M9-YPn" firstAttribute="leading" secondItem="7xW-ak-c6V" secondAttribute="leadingMargin" constant="-8" id="JBv-zf-OvY"/>
+                                            <constraint firstItem="qVo-Ti-yaE" firstAttribute="top" secondItem="7xW-ak-c6V" secondAttribute="topMargin" constant="-8" id="Rdw-cw-6cb"/>
+                                            <constraint firstItem="qVo-Ti-yaE" firstAttribute="top" secondItem="7xW-ak-c6V" secondAttribute="topMargin" id="U2v-TY-2Uc"/>
+                                            <constraint firstItem="qVo-Ti-yaE" firstAttribute="leading" secondItem="7xW-ak-c6V" secondAttribute="leadingMargin" constant="10" id="W3K-19-fxu"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="s95-m8-jYr" secondAttribute="bottom" constant="-8" id="b3N-sN-KcW"/>
+                                            <constraint firstItem="aJf-M9-YPn" firstAttribute="top" secondItem="7xW-ak-c6V" secondAttribute="topMargin" constant="-8" id="n2j-ht-3cv"/>
+                                            <constraint firstItem="s95-m8-jYr" firstAttribute="top" secondItem="aJf-M9-YPn" secondAttribute="bottom" id="nc3-ll-7XP"/>
+                                            <constraint firstItem="qVo-Ti-yaE" firstAttribute="top" secondItem="7xW-ak-c6V" secondAttribute="topMargin" constant="-8" id="tq0-8t-zNT"/>
+                                            <constraint firstItem="s95-m8-jYr" firstAttribute="top" secondItem="aJf-M9-YPn" secondAttribute="bottom" id="vMb-Xf-2QJ"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="tVJ-PX-Eru"/>
+                                            </mask>
+                                            <mask key="constraints">
+                                                <exclude reference="CAU-ar-g0P"/>
+                                                <exclude reference="JBv-zf-OvY"/>
+                                                <exclude reference="n2j-ht-3cv"/>
+                                                <exclude reference="Rdw-cw-6cb"/>
+                                                <exclude reference="tq0-8t-zNT"/>
+                                                <exclude reference="nc3-ll-7XP"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
+                                            <outlet property="btnDelete" destination="qVo-Ti-yaE" id="mWw-c3-U4y"/>
                                             <outlet property="imgAlbum" destination="aJf-M9-YPn" id="GWP-ha-FP9"/>
                                             <outlet property="lbName" destination="tVJ-PX-Eru" id="jB3-OP-h5L"/>
+                                            <outlet property="tfName" destination="s95-m8-jYr" id="8gk-yP-kEY"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -331,7 +376,7 @@
         <scene sceneID="a30-qe-vNd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z3G-89-UfG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Photos" image="photo" id="Chg-27-6Ut"/>
+                    <tabBarItem key="tabBarItem" title="Photos" image="tab_photo" id="Chg-27-6Ut"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cSZ-PU-sik">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -350,7 +395,7 @@
         <scene sceneID="cE0-Aw-Ucg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7w3-qV-cON" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Albums" image="photo" id="ixi-IA-eLi"/>
+                    <tabBarItem key="tabBarItem" title="Albums" image="tab_album" id="ixi-IA-eLi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9mp-74-UBD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -367,7 +412,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete" width="32" height="32"/>
         <image name="folder" width="729" height="728"/>
-        <image name="photo" width="32" height="32"/>
+        <image name="tab_album" width="30" height="30"/>
+        <image name="tab_photo" width="32" height="32"/>
     </resources>
 </document>
