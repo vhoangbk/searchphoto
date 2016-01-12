@@ -12,6 +12,7 @@
 @import Photos;
 #import "AppDelegate.h"
 #import "TGRImageViewController.h"
+#import "Utils.h"
 
 @interface PhotoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, PHPhotoLibraryChangeObserver>
 
@@ -68,7 +69,8 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;{
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat size = (w-50)/4.0;
+    
+    CGFloat size = w/4.0f - 10;
     return CGSizeMake(size, size);
 }
 

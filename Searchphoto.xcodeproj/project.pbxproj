@@ -11,7 +11,6 @@
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
 		7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F6FC9C81C41267700344BE7 /* Localizable.strings */; };
-		7F6FCA811C4170E900344BE7 /* Main2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F6FCA7F1C4170E900344BE7 /* Main2.storyboard */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -73,7 +72,6 @@
 		7F6EF1161C3C31A200F342F9 /* ImageViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageViewCell.h; path = view/ImageViewCell.h; sourceTree = "<group>"; };
 		7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageViewCell.m; path = view/ImageViewCell.m; sourceTree = "<group>"; };
 		7F6FC9CC1C41270F00344BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		7F6FCA801C4170E900344BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main2.storyboard; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
 		7FFDE1291C3AC27200171DFC /* Searchphoto.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Searchphoto.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,7 +223,6 @@
 				7FFDE1491C3AC81300171DFC /* Network */,
 				7FFDE12F1C3AC27200171DFC /* AppDelegate.h */,
 				7FFDE1301C3AC27200171DFC /* AppDelegate.m */,
-				7F6FCA7F1C4170E900344BE7 /* Main2.storyboard */,
 				7FFDE1351C3AC27200171DFC /* Main.storyboard */,
 				7FFDE1381C3AC27200171DFC /* Assets.xcassets */,
 				7FFDE13A1C3AC27200171DFC /* LaunchScreen.storyboard */,
@@ -495,7 +492,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */,
-				7F6FCA811C4170E900344BE7 /* Main2.storyboard in Resources */,
 				7FFDE13C1C3AC27200171DFC /* LaunchScreen.storyboard in Resources */,
 				7FFDE1391C3AC27200171DFC /* Assets.xcassets in Resources */,
 				88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */,
@@ -571,14 +567,6 @@
 				7F6FC9CC1C41270F00344BE7 /* Base */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		7F6FCA7F1C4170E900344BE7 /* Main2.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7F6FCA801C4170E900344BE7 /* Base */,
-			);
-			name = Main2.storyboard;
 			sourceTree = "<group>";
 		};
 		7FFDE1351C3AC27200171DFC /* Main.storyboard */ = {

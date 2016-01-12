@@ -103,27 +103,44 @@
         [assetArray addObject:asset];
     }];
     return assetArray;
+
 }
 
-//+ (void)getImageWithIdentifier:(NSString*)imageId onSuccess:(void(^)(UIImage *image))onSuccess onError: (void(^)(NSError * error)) onError
-//
-//{
-//    
-//    NSError *error = [[NSError alloc] init];
-//    
-//    PHFetchResult *assets = [PHAsset fetchAssetsWithLocalIdentifiers:@[imageId] options:nil];
-//    
-//    if (assets.count == 0) onError(error);
-//    NSArray * assetArray = [self getAssets:assets];
-//    
-//    PHImageManager *manager = [PHImageManager defaultManager];
-//    
-//    CGRect screenRect = [[UIScreen mainScreen] bounds];
-//    
-//    [manager requestImageForAsset:assetArray.firstObject targetSize:screenRect.size contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-//        
-//        onSuccess(result);
-//    }];
-//}
++(CGFloat)pixelToPoints2:(CGFloat)px {
+    
+    CGFloat pointsPerInch = 72.0; // see: http://en.wikipedia.org/wiki/Point%5Fsize#Current%5FDTP%5Fpoint%5Fsystem
+    CGFloat scale = 1; // We dont't use [[UIScreen mainScreen] scale] as we don't want the native pixel, we want pixels for UIFont - it does the retina scaling for us
+    float pixelPerInch; // aka dpi
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        pixelPerInch = 132 * scale;
+    } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        pixelPerInch = 163 * scale;
+    } else {
+        pixelPerInch = 160 * scale;
+    }
+    CGFloat result = px * pointsPerInch / pixelPerInch;
+    
+    return result;
+}
 
++ (UIImage* )setBackgroundImageByColor:(UIColor *)backgroundColor withFrame:(CGRect )rect{
+    
+    // tcv - temporary colored view
+    UIView *tcv = [[UIView alloc] initWithFrame:rect];
+    [tcv setBackgroundColor:backgroundColor];
+    
+    
+    // set up a graphics context of button's size
+    CGSize gcSize = tcv.frame.size;
+    UIGraphicsBeginImageContext(gcSize);
+    // add tcv's layer to context
+    [tcv.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // create background image now
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+    //    [tcv release];
+    
+}
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "Utils.h"
 
 @interface BaseViewController ()
 
@@ -18,11 +19,9 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.topItem.title = @"";
+    
+//    [[UINavigationBar appearance] setBarTintColor : RGB(76, 193, 210)];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

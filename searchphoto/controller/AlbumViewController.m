@@ -125,10 +125,13 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     self.isEdit = YES;
     [self.collectionViewAlbum reloadData];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+    UIBarButtonItem *edit = [[UIBarButtonItem alloc]
       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
       target:self
       action:@selector(handleDoneButtonItem)];
+    [edit setImage:[UIImage imageNamed:@"ic_header_edit"]];
+    
+    self.navigationItem.rightBarButtonItem = edit;
 }
 
 - (void)handleDoneButtonItem{
