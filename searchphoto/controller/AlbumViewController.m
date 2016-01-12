@@ -22,13 +22,17 @@ static NSString *kAlbumDetailViewControllerIdentity = @"AlbumDetailViewControlle
 static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity";
 
 
-@interface AlbumViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UISearchBarDelegate>
+@interface AlbumViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PHPhotoLibraryChangeObserver, UISearchBarDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
 @property PHFetchResult *pHFetchResultAlbum;
 @property PHImageManager *phImageManger;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property BOOL isEdit;
+
+@property UIBarButtonItem *editBtn;
+@property UIBarButtonItem *doneBtn;
+@property (weak, nonatomic) IBOutlet UITextField *tfSearch;
 
 @end
 
@@ -52,6 +56,12 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     
     self.searchBar.delegate = self;
     
+    self.editBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_header_edit"] style:UIBarButtonItemStyleDone target:self action:@selector(handleEditButtonItem:)];
+    self.doneBtn = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_header_done"] style:UIBarButtonItemStyleDone target:self action:@selector(handleDoneButtonItem)];
+    
+    self.navigationItem.rightBarButtonItem = self.editBtn;
+    
+    self.tfSearch.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -121,27 +131,17 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 }
 
 - (IBAction)handleEditButtonItem:(id)sender {
-    NSLog(@"handleEditButtonItem");
     self.isEdit = YES;
     [self.collectionViewAlbum reloadData];
     
-    UIBarButtonItem *edit = [[UIBarButtonItem alloc]
-      initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-      target:self
-      action:@selector(handleDoneButtonItem)];
-    [edit setImage:[UIImage imageNamed:@"ic_header_edit"]];
-    
-    self.navigationItem.rightBarButtonItem = edit;
+    self.navigationItem.rightBarButtonItem = self.doneBtn;
 }
 
 - (void)handleDoneButtonItem{
     self.isEdit = NO;
     [self.collectionViewAlbum reloadData];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                              initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-                                              target:self
-                                              action:@selector(handleEditButtonItem:)];
+    self.navigationItem.rightBarButtonItem = self.editBtn;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -220,7 +220,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat size = (w-30)/2.0;
-    return CGSizeMake(size, size);
+    return CGSizeMake(size, size+80);
 }
 
 #pragma mark - UISearchBarDelegate
@@ -228,5 +228,10 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     [self searchPhoto:searchBar.text];
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self searchPhoto:textField.text];
+    return YES;
+}
 
 @end

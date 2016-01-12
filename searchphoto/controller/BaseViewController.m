@@ -18,9 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.topItem.title = @"";
+//    self.navigationController.navigationBar.topItem.title = @"";
     
-//    [[UINavigationBar appearance] setBarTintColor : RGB(76, 193, 210)];
 }
 
 

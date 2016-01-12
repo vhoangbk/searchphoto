@@ -679,7 +679,7 @@
 				INFOPLIST_FILE = searchphoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.paraline.searchphoto;
+				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -695,7 +695,7 @@
 				INFOPLIST_FILE = searchphoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.paraline.searchphoto;
+				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 			};

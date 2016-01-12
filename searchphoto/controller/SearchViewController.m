@@ -31,7 +31,8 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationController.navigationBar.topItem.title = @"";
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"back", @"");
+    
     
     self.collectionImage.dataSource = self;
     self.collectionImage.delegate = self;
