@@ -10,7 +10,7 @@
 
 @import Photos;
 
-@interface AlbumCollectionViewCell : UICollectionViewCell <UITextFieldDelegate>
+@interface AlbumCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, weak) IBOutlet UIImageView *imgAlbum;
 
@@ -20,8 +20,12 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 
+@property (nonatomic, weak) IBOutlet UILabel *lbDate;
+
+@property (nonatomic, weak) IBOutlet UILabel *lbNumber;
+
 @property PHAsset *collection;
 
-- (void) initDelegate;
+@property (strong, nonatomic) IBOutlet UIButton *editBtn;
 
 @end

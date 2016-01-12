@@ -14,14 +14,17 @@
 #import "UIImageView+AFNetworking.h"
 #import "SearchDetailViewController.h"
 #import "TGRImageViewController.h"
+#import "SearchCollectionViewCell.h"
 
-static NSString *kImageViewCellIdentity = @"ImageViewCellIdentity";
+static NSString *kImageViewCellIdentity = @"SearchCollectionViewCellIdentity";
 static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControllerIdentity";
 
-@interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionImage;
 @property (nonatomic, strong) NSMutableArray *images;
+
+@property (nonatomic, weak) IBOutlet UITextField *tfSearch;
 
 @end
 
@@ -37,7 +40,7 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
     self.collectionImage.dataSource = self;
     self.collectionImage.delegate = self;
     
-    [self.collectionImage registerClass:[ImageViewCell class] forCellWithReuseIdentifier:kImageViewCellIdentity];
+    self.tfSearch.delegate = self;
     
     [self loadImagesWithOffset:0];
     
@@ -66,7 +69,7 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
     if (offset==0) {
         // Clear the images array and refresh the table view so it's empty
         [self.images removeAllObjects];
-        [self.collectionImage reloadData];
+//        [self.collectionImage reloadData];
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
@@ -95,13 +98,20 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
 
 #pragma mark - UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageViewCellIdentity
+    SearchCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kImageViewCellIdentity
                                                                        forIndexPath:indexPath];
     
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
+
+    [cell.imageview setImageWithURL:imageRecord.thumbnailURL placeholderImage:[UIImage imageNamed:@"folder"]];
     
-    [cell.imageView setImageWithURL:imageRecord.thumbnailURL placeholderImage:[UIImage imageNamed:@"folder"]];
+    NSArray *aStr = [[imageRecord.imageURL absoluteString] componentsSeparatedByString:@"//"];
+    NSString *web = [[aStr[1] componentsSeparatedByString:@"/"] firstObject];
     
+    //[[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
+    cell.lbName.text = [[[imageRecord.imageURL absoluteString] componentsSeparatedByString:@"/"] lastObject];
+    cell.lbWebsite.text = [NSString stringWithFormat:@"%@//%@", aStr[0], web];
+
     // Check if this has been the last item, if so start loading more images...
     if (indexPath.row == [self.images count] - 1) {
         [self loadImagesWithOffset:(int)[self.images count]];
@@ -136,7 +146,15 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat size = (w-30)/2.0;
-    return CGSizeMake(size, size);
+    return CGSizeMake(size, size+50);
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    self.strSearch = textField.text;
+    self.title = [NSString stringWithFormat:@"Search: %@", self.strSearch];
+    [self loadImagesWithOffset:0];
+    return YES;
 }
 
 

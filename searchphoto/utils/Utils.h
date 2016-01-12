@@ -24,4 +24,6 @@
 
 + (UIImage* )setBackgroundImageByColor:(UIColor *)backgroundColor withFrame:(CGRect )rect;
 
++(NSString*)date2str:(NSDate*)myNSDateInstance onlyDate:(BOOL)onlyDate;
+
 @end

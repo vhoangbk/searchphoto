@@ -143,4 +143,31 @@
     //    [tcv release];
     
 }
+
++(NSString*)date2str:(NSDate*)myNSDateInstance onlyDate:(BOOL)onlyDate{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    if (onlyDate) {
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+    }else{
+        [formatter setDateFormat: @"dd-MM-yyyy HH:mm"];
+    }
+    
+    //Optionally for time zone conversions
+    //   [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    
+    NSString *stringFromDate = [formatter stringFromDate:myNSDateInstance];
+    return stringFromDate;
+}
+
++(NSDate*)str2date:(NSString*)dateStr{
+    if ([dateStr isKindOfClass:[NSDate class]]) {
+        return (NSDate*)dateStr;
+    }
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormat dateFromString:dateStr];
+    return date;
+}
+
 @end
