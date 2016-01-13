@@ -31,8 +31,9 @@
 #pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.navigationController.navigationBar.topItem.title = NSLocalizedString(@"back", @"");
     
-    self.navigationController.navigationBar.topItem.title = @"";
     self.title = [[[self.urlImage absoluteString] componentsSeparatedByString:@"/"] lastObject];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];

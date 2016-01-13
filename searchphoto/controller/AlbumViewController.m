@@ -34,6 +34,8 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 @property UIBarButtonItem *doneBtn;
 @property (weak, nonatomic) IBOutlet UITextField *tfSearch;
 
+@property (nonatomic, strong) PHCachingImageManager *imageManager;
+
 @end
 
 @implementation AlbumViewController
@@ -49,6 +51,9 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     
     self.collectionViewAlbum.delegate = self;
     self.collectionViewAlbum.dataSource = self;
+    
+    self.imageManager = [[PHCachingImageManager alloc] init];
+    [self.imageManager stopCachingImagesForAllAssets];
     
     self.pHFetchResultAlbum = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
 
@@ -194,29 +199,16 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     cell.lbNumber.text = [NSString stringWithFormat:@"%d", [assetsFetchResult count]];
 
   PHAsset *lastAsset = [assetsFetchResult lastObject];
-//  [self.phImageManger
-//      requestImageForAsset:lastAsset
-//                targetSize:cell.imgAlbum.bounds.size
-//               contentMode:PHImageContentModeAspectFill
-//                   options:nil
-//             resultHandler:^(UIImage *result, NSDictionary *info) {
-//                 if (result != nil) {
-//                     [cell.imgAlbum setImage:result];
-//                 }else{
-//                     [cell.imgAlbum setImage:[UIImage imageNamed:@"folder"]];
-//                 }
-//
-//             }];
-    [self.phImageManger requestImageDataForAsset:lastAsset
-                                         options:nil
-                                   resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        if (imageData != nil) {
-            [cell.imgAlbum setImage:[UIImage imageWithData:imageData]];
-        }else{
-            [cell.imgAlbum setImage:[UIImage imageNamed:@"folder"]];
-        }
-
-    }];
+    
+    // Request an image for the asset from the PHCachingImageManager.
+    [self.imageManager requestImageForAsset:lastAsset
+                                 targetSize:cell.imgAlbum.bounds.size
+                                contentMode:PHImageContentModeAspectFill
+                                    options:nil
+                              resultHandler:^(UIImage *result, NSDictionary *info) {
+                                  [cell.imgAlbum setImage:result];
+                              }];
+    
   return cell;
 }
 
@@ -245,7 +237,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;{
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat size = (w-30)/2.0;
+    CGFloat size = (w-23)/2.0;
     return CGSizeMake(size, size+50);
 }
 

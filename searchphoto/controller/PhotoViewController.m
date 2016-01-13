@@ -13,11 +13,13 @@
 #import "AppDelegate.h"
 #import "TGRImageViewController.h"
 #import "Utils.h"
+#import "SDImageCache.h"
 
 @interface PhotoViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate, PHPhotoLibraryChangeObserver>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *photoCollection;
 @property PHFetchResult *allPhotosResult;
+@property (nonatomic, strong) PHCachingImageManager *imageManager;
 
 @end
 
@@ -28,6 +30,9 @@
     
     self.photoCollection.dataSource = self;
     self.photoCollection.delegate = self;
+    
+    self.imageManager = [[PHCachingImageManager alloc] init];
+    [self.imageManager stopCachingImagesForAllAssets];
     
     self.allPhotosResult = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
     [self.photoCollection registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"PhotoCellIdentity"];
@@ -56,12 +61,16 @@
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PhotoCellIdentity"
                                                                     forIndexPath:indexPath];
     PHAsset *asset = [self.allPhotosResult objectAtIndex:indexPath.row];
-
-    [[PHImageManager defaultManager] requestImageDataForAsset:asset options:nil resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
-        [cell.imageView setImage:[UIImage imageWithData:imageData]];
-    }];
-
     
+    // Request an image for the asset from the PHCachingImageManager.
+    [self.imageManager requestImageForAsset:asset
+                                 targetSize:cell.imageView.bounds.size
+                                contentMode:PHImageContentModeAspectFill
+                                    options:nil
+                              resultHandler:^(UIImage *result, NSDictionary *info) {
+                                    [cell.imageView setImage:result];
+                              }];
+
     return cell;
 }
 
@@ -94,5 +103,109 @@
     TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
     [self presentViewController:viewController animated:YES completion:nil];
 }
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    // Update cached assets for the new visible area.
+//    [self updateCachedAssets];
+}
+
+#pragma mark - Asset
+
+- (void)resetCachedAssets {
+    [self.imageManager stopCachingImagesForAllAssets];
+//    self.previousPreheatRect = CGRectZero;
+}
+
+//- (void)updateCachedAssets {
+//    BOOL isViewVisible = [self isViewLoaded] && [[self view] window] != nil;
+//    if (!isViewVisible) { return; }
+//    
+//    // The preheat window is twice the height of the visible rect.
+//    CGRect preheatRect = self.collectionView.bounds;
+//    preheatRect = CGRectInset(preheatRect, 0.0f, -0.5f * CGRectGetHeight(preheatRect));
+//    
+//    /*
+//     Check if the collection view is showing an area that is significantly
+//     different to the last preheated area.
+//     */
+//    CGFloat delta = ABS(CGRectGetMidY(preheatRect) - CGRectGetMidY(self.previousPreheatRect));
+//    if (delta > CGRectGetHeight(self.collectionView.bounds) / 3.0f) {
+//        
+//        // Compute the assets to start caching and to stop caching.
+//        NSMutableArray *addedIndexPaths = [NSMutableArray array];
+//        NSMutableArray *removedIndexPaths = [NSMutableArray array];
+//        
+//        [self computeDifferenceBetweenRect:self.previousPreheatRect andRect:preheatRect removedHandler:^(CGRect removedRect) {
+//            NSArray *indexPaths = [self.collectionView aapl_indexPathsForElementsInRect:removedRect];
+//            [removedIndexPaths addObjectsFromArray:indexPaths];
+//        } addedHandler:^(CGRect addedRect) {
+//            NSArray *indexPaths = [self.collectionView aapl_indexPathsForElementsInRect:addedRect];
+//            [addedIndexPaths addObjectsFromArray:indexPaths];
+//        }];
+//        
+//        NSArray *assetsToStartCaching = [self assetsAtIndexPaths:addedIndexPaths];
+//        NSArray *assetsToStopCaching = [self assetsAtIndexPaths:removedIndexPaths];
+//        
+//        // Update the assets the PHCachingImageManager is caching.
+//        [self.imageManager startCachingImagesForAssets:assetsToStartCaching
+//                                            targetSize:AssetGridThumbnailSize
+//                                           contentMode:PHImageContentModeAspectFill
+//                                               options:nil];
+//        [self.imageManager stopCachingImagesForAssets:assetsToStopCaching
+//                                           targetSize:AssetGridThumbnailSize
+//                                          contentMode:PHImageContentModeAspectFill
+//                                              options:nil];
+//        
+//        // Store the preheat rect to compare against in the future.
+//        self.previousPreheatRect = preheatRect;
+//    }
+//}
+
+//- (void)computeDifferenceBetweenRect:(CGRect)oldRect andRect:(CGRect)newRect removedHandler:(void (^)(CGRect removedRect))removedHandler addedHandler:(void (^)(CGRect addedRect))addedHandler {
+//    if (CGRectIntersectsRect(newRect, oldRect)) {
+//        CGFloat oldMaxY = CGRectGetMaxY(oldRect);
+//        CGFloat oldMinY = CGRectGetMinY(oldRect);
+//        CGFloat newMaxY = CGRectGetMaxY(newRect);
+//        CGFloat newMinY = CGRectGetMinY(newRect);
+//        
+//        if (newMaxY > oldMaxY) {
+//            CGRect rectToAdd = CGRectMake(newRect.origin.x, oldMaxY, newRect.size.width, (newMaxY - oldMaxY));
+//            addedHandler(rectToAdd);
+//        }
+//        
+//        if (oldMinY > newMinY) {
+//            CGRect rectToAdd = CGRectMake(newRect.origin.x, newMinY, newRect.size.width, (oldMinY - newMinY));
+//            addedHandler(rectToAdd);
+//        }
+//        
+//        if (newMaxY < oldMaxY) {
+//            CGRect rectToRemove = CGRectMake(newRect.origin.x, newMaxY, newRect.size.width, (oldMaxY - newMaxY));
+//            removedHandler(rectToRemove);
+//        }
+//        
+//        if (oldMinY < newMinY) {
+//            CGRect rectToRemove = CGRectMake(newRect.origin.x, oldMinY, newRect.size.width, (newMinY - oldMinY));
+//            removedHandler(rectToRemove);
+//        }
+//    } else {
+//        addedHandler(newRect);
+//        removedHandler(oldRect);
+//    }
+//}
+
+//- (NSArray *)assetsAtIndexPaths:(NSArray *)indexPaths {
+//    if (indexPaths.count == 0) { return nil; }
+//    
+//    NSMutableArray *assets = [NSMutableArray arrayWithCapacity:indexPaths.count];
+//    for (NSIndexPath *indexPath in indexPaths) {
+//        PHAsset *asset = self.assetsFetchResults[indexPath.item];
+//        [assets addObject:asset];
+//    }
+//    
+//    return assets;
+//}
+
 
 @end
