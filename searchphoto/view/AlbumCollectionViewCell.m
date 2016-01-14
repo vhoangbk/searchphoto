@@ -10,6 +10,10 @@
 
 @implementation AlbumCollectionViewCell
 
+- (void) initDelegate{
+    self.tfName.delegate = self;
+}
+
 - (IBAction)deleteAlbum:(id)sender {
     
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{

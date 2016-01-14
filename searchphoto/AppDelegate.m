@@ -29,9 +29,9 @@ static NSString *kPhotoVCIdentity = @"PhotoViewControllerIdentity";
     [[UITabBar appearance] setBarTintColor:RGB(34, 34, 34)];
     [[UITabBar appearance] setTintColor:RGB(71, 179, 194)];
     
-    UIImage *image = [Utils setBackgroundImageByColor:[UIColor blackColor] withFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, 48)];
-    
-    [[UITabBar appearance] setSelectionIndicatorImage:image];
+//    UIImage *image = [Utils setBackgroundImageByColor:[UIColor blackColor] withFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width/2, 48)];
+//    
+//    [[UITabBar appearance] setSelectionIndicatorImage:image];
     
     return YES;
 }

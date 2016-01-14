@@ -165,6 +165,8 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
   AlbumCollectionViewCell *cell =
       [collectionView dequeueReusableCellWithReuseIdentifier:kAlbumCellIdentity
                                                 forIndexPath:indexPath];
+    
+    [cell initDelegate];
 
   PHAssetCollection *collection = self.pHFetchResultAlbum[indexPath.row];
     
@@ -237,7 +239,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;{
     
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
-    CGFloat size = (w-23)/2.0;
+    CGFloat size = (w-30)/2.0;
     return CGSizeMake(size, size+50);
 }
 
