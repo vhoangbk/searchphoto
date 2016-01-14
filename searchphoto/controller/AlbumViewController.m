@@ -26,7 +26,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionViewAlbum;
 @property PHFetchResult *pHFetchResultAlbum;
-@property PHImageManager *phImageManger;
+
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property BOOL isEdit;
 
@@ -46,8 +46,6 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     [super viewDidLoad];
     
     self.isEdit = NO;
-    
-    self.phImageManger = [[PHImageManager alloc] init];
     
     self.collectionViewAlbum.delegate = self;
     self.collectionViewAlbum.dataSource = self;

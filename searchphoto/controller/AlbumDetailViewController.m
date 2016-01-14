@@ -8,13 +8,15 @@
 
 #import "AlbumDetailViewController.h"
 #import "ImageViewCell.h"
-#import "TGRImageViewController.h"
+#import "AlbumDetailPhotoViewController.h"
+
+static NSString *kAlbumDetailPhotoViewController = @"AlbumDetailPhotoViewController";
 
 @interface AlbumDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionPhoto;
 
-@property (strong, nonatomic) NSArray *cellColors;
+@property (nonatomic, strong) PHCachingImageManager *imageManager;
 
 @end
 
@@ -28,11 +30,11 @@
     
     [self.collectionPhoto registerClass:[ImageViewCell class] forCellWithReuseIdentifier:@"ImagePhotoIdentity"];
     
-    self.cellColors = @[ [UIColor colorWithRed:166.0f/255.0f green:201.0f/255.0f blue:227.0f/255.0f alpha:1.0],
-                         [UIColor colorWithRed:227.0f/255.0f green:192.0f/255.0f blue:166.0f/255.0f alpha:1.0] ];
-    
     self.collectionPhoto.dataSource = self;
     self.collectionPhoto.delegate = self;
+    
+    self.imageManager = [[PHCachingImageManager alloc] init];
+    [self.imageManager stopCachingImagesForAllAssets];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -51,25 +53,27 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ImageViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ImagePhotoIdentity"
                                                                               forIndexPath:indexPath];
-    cell.imageView.backgroundColor = self.cellColors[indexPath.row % [self.cellColors count]];
 
     PHAsset *asset = [self.fetchPhoto objectAtIndex:indexPath.row];
-    [[PHImageManager defaultManager] requestImageForAsset:asset
-                  targetSize:cell.bounds.size
-                 contentMode:PHImageContentModeAspectFill
-                     options:nil
-               resultHandler:^(UIImage *result, NSDictionary *info) {
-                   [cell.imageView setImage:result];
-
-               }];
+    [self.imageManager requestImageForAsset:asset
+                                 targetSize:cell.imageView.bounds.size
+                                contentMode:PHImageContentModeAspectFill
+                                    options:nil
+                              resultHandler:^(UIImage *result, NSDictionary *info) {
+                                  [cell.imageView setImage:result];
+                              }];
 
     return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
+    
+    AlbumDetailPhotoViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kAlbumDetailPhotoViewController];
+    
+    viewController.currentIndex = indexPath;
+    viewController.resultCollection = self.fetchPhoto;
+
     [self presentViewController:viewController animated:YES completion:nil];
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F489C6E1C480E6D0070DCF4 /* GalleryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F489C6D1C480E6D0070DCF4 /* GalleryCell.m */; };
+		7F489C711C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F489C701C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m */; };
+		7F489C761C481C890070DCF4 /* TGRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F489C741C481C890070DCF4 /* TGRImageViewController.m */; };
+		7F489C771C481C890070DCF4 /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F489C751C481C890070DCF4 /* TGRImageViewController.xib */; };
 		7F6EF1111C3C311B00F342F9 /* AlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */; };
 		7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1131C3C317E00F342F9 /* AFBingAPIClient.m */; };
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
@@ -42,8 +46,6 @@
 		88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFD1C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m */; };
 		88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */; };
 		88275D141C3BA5C70087C206 /* SearchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275D131C3BA5C70087C206 /* SearchDetailViewController.m */; };
-		88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021771C3E500000CEB609 /* TGRImageViewController.m */; };
-		88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D021781C3E500000CEB609 /* TGRImageViewController.xib */; };
 		88D021A41C3E7A6000CEB609 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021841C3E7A6000CEB609 /* MKAnnotationView+WebCache.m */; };
 		88D021A51C3E7A6000CEB609 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021861C3E7A6000CEB609 /* NSData+ImageContentType.m */; };
 		88D021A61C3E7A6000CEB609 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D021881C3E7A6000CEB609 /* SDImageCache.m */; };
@@ -65,6 +67,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F489C6C1C480E6D0070DCF4 /* GalleryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryCell.h; sourceTree = "<group>"; };
+		7F489C6D1C480E6D0070DCF4 /* GalleryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryCell.m; sourceTree = "<group>"; };
+		7F489C6F1C480F9E0070DCF4 /* AlbumDetailPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumDetailPhotoViewController.h; path = controller/AlbumDetailPhotoViewController.h; sourceTree = "<group>"; };
+		7F489C701C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumDetailPhotoViewController.m; path = controller/AlbumDetailPhotoViewController.m; sourceTree = "<group>"; };
+		7F489C731C481C890070DCF4 /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGRImageViewController.h; path = Third/Vertigo/TGRImageViewController.h; sourceTree = "<group>"; };
+		7F489C741C481C890070DCF4 /* TGRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TGRImageViewController.m; path = Third/Vertigo/TGRImageViewController.m; sourceTree = "<group>"; };
+		7F489C751C481C890070DCF4 /* TGRImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TGRImageViewController.xib; path = Third/Vertigo/TGRImageViewController.xib; sourceTree = "<group>"; };
 		7F6EF10F1C3C311B00F342F9 /* AlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlbumCollectionViewCell.h; path = view/AlbumCollectionViewCell.h; sourceTree = "<group>"; };
 		7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumCollectionViewCell.m; path = view/AlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		7F6EF1121C3C317E00F342F9 /* AFBingAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFBingAPIClient.h; path = network/AFBingAPIClient.h; sourceTree = "<group>"; };
@@ -137,9 +146,6 @@
 		88275D121C3BA5C70087C206 /* SearchDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchDetailViewController.h; path = controller/SearchDetailViewController.h; sourceTree = "<group>"; };
 		88275D131C3BA5C70087C206 /* SearchDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchDetailViewController.m; path = controller/SearchDetailViewController.m; sourceTree = "<group>"; };
 		88275D161C3BBD710087C206 /* Const.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Const.h; path = utils/Const.h; sourceTree = "<group>"; };
-		88D021761C3E500000CEB609 /* TGRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TGRImageViewController.h; path = Third/Vertigo/TGRImageViewController.h; sourceTree = "<group>"; };
-		88D021771C3E500000CEB609 /* TGRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TGRImageViewController.m; path = Third/Vertigo/TGRImageViewController.m; sourceTree = "<group>"; };
-		88D021781C3E500000CEB609 /* TGRImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TGRImageViewController.xib; path = Third/Vertigo/TGRImageViewController.xib; sourceTree = "<group>"; };
 		88D021831C3E7A6000CEB609 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MKAnnotationView+WebCache.h"; path = "Third/SDWebImage/MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		88D021841C3E7A6000CEB609 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MKAnnotationView+WebCache.m"; path = "Third/SDWebImage/MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		88D021851C3E7A6000CEB609 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "Third/SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -190,6 +196,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F489C721C481C800070DCF4 /* Vertigo */ = {
+			isa = PBXGroup;
+			children = (
+				7F489C731C481C890070DCF4 /* TGRImageViewController.h */,
+				7F489C741C481C890070DCF4 /* TGRImageViewController.m */,
+				7F489C751C481C890070DCF4 /* TGRImageViewController.xib */,
+			);
+			name = Vertigo;
+			sourceTree = "<group>";
+		};
 		7FCF0FBA1C3ADE3E004CFB2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +296,8 @@
 				88275D131C3BA5C70087C206 /* SearchDetailViewController.m */,
 				88F343551C3CD593002B5833 /* AlbumDetailViewController.h */,
 				88F343561C3CD593002B5833 /* AlbumDetailViewController.m */,
+				7F489C6F1C480F9E0070DCF4 /* AlbumDetailPhotoViewController.h */,
+				7F489C701C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -293,6 +311,8 @@
 				7F6EF1101C3C311B00F342F9 /* AlbumCollectionViewCell.m */,
 				7F7450851C455DEC0005A988 /* SearchCollectionViewCell.h */,
 				7F7450861C455DEC0005A988 /* SearchCollectionViewCell.m */,
+				7F489C6C1C480E6D0070DCF4 /* GalleryCell.h */,
+				7F489C6D1C480E6D0070DCF4 /* GalleryCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -300,8 +320,8 @@
 		88275CC81C3B78FE0087C206 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				7F489C721C481C800070DCF4 /* Vertigo */,
 				88D021821C3E7A4B00CEB609 /* SDWebImage */,
-				88D021751C3E4FF600CEB609 /* Vertigo */,
 				88F343511C3CAFE6002B5833 /* Toast */,
 				88275CCD1C3B79990087C206 /* AFNetworking */,
 				88275CC91C3B793B0087C206 /* MBProgressHUD */,
@@ -376,16 +396,6 @@
 				88275CFF1C3B7A0A0087C206 /* UIWebView+AFNetworking.m */,
 			);
 			name = "UIKit+AFNetworking";
-			sourceTree = "<group>";
-		};
-		88D021751C3E4FF600CEB609 /* Vertigo */ = {
-			isa = PBXGroup;
-			children = (
-				88D021761C3E500000CEB609 /* TGRImageViewController.h */,
-				88D021771C3E500000CEB609 /* TGRImageViewController.m */,
-				88D021781C3E500000CEB609 /* TGRImageViewController.xib */,
-			);
-			name = Vertigo;
 			sourceTree = "<group>";
 		};
 		88D021821C3E7A4B00CEB609 /* SDWebImage */ = {
@@ -496,10 +506,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F489C771C481C890070DCF4 /* TGRImageViewController.xib in Resources */,
 				7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */,
 				7FFDE13C1C3AC27200171DFC /* LaunchScreen.storyboard in Resources */,
 				7FFDE1391C3AC27200171DFC /* Assets.xcassets in Resources */,
-				88D0217E1C3E500000CEB609 /* TGRImageViewController.xib in Resources */,
 				7FFDE1371C3AC27200171DFC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +523,7 @@
 			files = (
 				88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */,
 				7FFDE15F1C3ACD7600171DFC /* SearchViewController.m in Sources */,
+				7F489C6E1C480E6D0070DCF4 /* GalleryCell.m in Sources */,
 				7F7450871C455DEC0005A988 /* SearchCollectionViewCell.m in Sources */,
 				7FFDE15B1C3AC94200171DFC /* BaseViewController.m in Sources */,
 				88275D001C3B7A0A0087C206 /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -530,7 +541,9 @@
 				88D021AB1C3E7A6000CEB609 /* SDWebImageManager.m in Sources */,
 				88275D051C3B7A0A0087C206 /* UIProgressView+AFNetworking.m in Sources */,
 				88275CEB1C3B79EE0087C206 /* AFURLResponseSerialization.m in Sources */,
+				7F489C711C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m in Sources */,
 				88D021B11C3E7A6000CEB609 /* UIImageView+HighlightedWebCache.m in Sources */,
+				7F489C761C481C890070DCF4 /* TGRImageViewController.m in Sources */,
 				88D021AE1C3E7A6000CEB609 /* UIImage+GIF.m in Sources */,
 				88275D061C3B7A0A0087C206 /* UIRefreshControl+AFNetworking.m in Sources */,
 				88275CEA1C3B79EE0087C206 /* AFURLRequestSerialization.m in Sources */,
@@ -554,7 +567,6 @@
 				88F343541C3CAFF2002B5833 /* UIView+Toast.m in Sources */,
 				88275D071C3B7A0A0087C206 /* UIWebView+AFNetworking.m in Sources */,
 				8816EBF41C3F9F06002A8BE3 /* PhotoViewController.m in Sources */,
-				88D0217D1C3E500000CEB609 /* TGRImageViewController.m in Sources */,
 				7FFDE14E1C3AC88800171DFC /* Utils.m in Sources */,
 				7F6EF1141C3C317E00F342F9 /* AFBingAPIClient.m in Sources */,
 				7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */,

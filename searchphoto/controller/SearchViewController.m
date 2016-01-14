@@ -13,7 +13,6 @@
 #import "ImageRecord.h"
 #import "UIImageView+AFNetworking.h"
 #import "SearchDetailViewController.h"
-#import "TGRImageViewController.h"
 #import "SearchCollectionViewCell.h"
 
 static NSString *kImageViewCellIdentity = @"SearchCollectionViewCellIdentity";
@@ -103,7 +102,7 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
     
     ImageRecord *imageRecord = [self.images objectAtIndex:indexPath.row];
 
-    [cell.imageview setImageWithURL:imageRecord.thumbnailURL placeholderImage:[UIImage imageNamed:@"folder"]];
+    [cell.imageview setImageWithURL:imageRecord.thumbnailURL];
     
     NSArray *aStr = [[imageRecord.imageURL absoluteString] componentsSeparatedByString:@"//"];
     NSString *web = [[aStr[1] componentsSeparatedByString:@"/"] firstObject];
