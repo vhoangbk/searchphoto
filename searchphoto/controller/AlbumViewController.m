@@ -16,6 +16,7 @@
 #import "AlbumDetailViewController.h"
 
 @import Photos;
+#import "AddDialog.h"
 
 static NSString *kAlbumCellIdentity = @"AlbumCellIdentity";
 static NSString *kAlbumDetailViewControllerIdentity = @"AlbumDetailViewControllerIdentity";
@@ -35,6 +36,8 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 @property (weak, nonatomic) IBOutlet UITextField *tfSearch;
 
 @property (nonatomic, strong) PHCachingImageManager *imageManager;
+
+//@property AddDialog *addDialog;
 
 @end
 
@@ -66,7 +69,9 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     self.tfSearch.delegate = self;
     
     //init searchbar
-    self.searchBar.delegate = self;
+//    self.searchBar.delegate = self;
+    
+//    self.addDialog = [AddDialog sharedInstance];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -140,6 +145,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
     [self.collectionViewAlbum reloadData];
     
     self.navigationItem.rightBarButtonItem = self.doneBtn;
+    
 }
 
 - (void)handleDoneButtonItem{

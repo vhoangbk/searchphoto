@@ -52,6 +52,7 @@
     [self.pHFetchResultAlbum enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [self.arrayPHAssetCollection addObject:obj];
     }];
+    
 }
 
 #pragma mark - private method
@@ -81,6 +82,7 @@
   [alert addAction:cancel];
 
   [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 - (void)saveImage:(PHAssetCollection *)collection {
