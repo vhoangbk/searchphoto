@@ -30,6 +30,7 @@
 		880023F11C488A900055C678 /* AddDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880023F01C488A900055C678 /* AddDialog.xib */; };
 		880023F41C48963C0055C678 /* AlbumDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 880023F31C48963C0055C678 /* AlbumDialog.m */; };
 		880023FE1C48A2B00055C678 /* AlbumDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 880023FD1C48A2B00055C678 /* AlbumDialog.xib */; };
+		880024001C48F8A60055C678 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 880023FF1C48F8A60055C678 /* Default-568h@2x.png */; };
 		8816EBF41C3F9F06002A8BE3 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */; };
 		88275CCC1C3B798C0087C206 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CCB1C3B798C0087C206 /* MBProgressHUD.m */; };
 		88275CE41C3B79EE0087C206 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 88275CD21C3B79EE0087C206 /* AFHTTPRequestOperation.m */; };
@@ -113,6 +114,7 @@
 		880023F31C48963C0055C678 /* AlbumDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlbumDialog.m; path = view/AlbumDialog.m; sourceTree = "<group>"; };
 		880023F91C48987F0055C678 /* IFAlbumDialogListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IFAlbumDialogListener.h; path = view/IFAlbumDialogListener.h; sourceTree = "<group>"; };
 		880023FD1C48A2B00055C678 /* AlbumDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumDialog.xib; path = view/AlbumDialog.xib; sourceTree = "<group>"; };
+		880023FF1C48F8A60055C678 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8816EBF21C3F9F06002A8BE3 /* PhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoViewController.h; path = controller/PhotoViewController.h; sourceTree = "<group>"; };
 		8816EBF31C3F9F06002A8BE3 /* PhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoViewController.m; path = controller/PhotoViewController.m; sourceTree = "<group>"; };
 		88275CCA1C3B798C0087C206 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = third/MBProgressHUD/MBProgressHUD.h; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		7FFDE1201C3AC27200171DFC = {
 			isa = PBXGroup;
 			children = (
+				880023FF1C48F8A60055C678 /* Default-568h@2x.png */,
 				88275CC81C3B78FE0087C206 /* Third */,
 				7FFDE12B1C3AC27200171DFC /* Searchphoto */,
 				7FFDE12A1C3AC27200171DFC /* Products */,
@@ -529,6 +532,7 @@
 				7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */,
 				7FFDE13C1C3AC27200171DFC /* LaunchScreen.storyboard in Resources */,
 				880023F11C488A900055C678 /* AddDialog.xib in Resources */,
+				880024001C48F8A60055C678 /* Default-568h@2x.png in Resources */,
 				7FFDE1391C3AC27200171DFC /* Assets.xcassets in Resources */,
 				7FFDE1371C3AC27200171DFC /* Main.storyboard in Resources */,
 			);
@@ -645,7 +649,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -689,7 +694,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -718,11 +724,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = searchphoto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3207fdb3-5a2b-4c9c-af2f-78e5e62683df";
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -736,11 +742,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = searchphoto/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
 				PRODUCT_NAME = Searchphoto.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3207fdb3-5a2b-4c9c-af2f-78e5e62683df";
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 			};
 			name = Release;
