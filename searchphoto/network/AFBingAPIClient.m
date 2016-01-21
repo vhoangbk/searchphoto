@@ -13,8 +13,9 @@
 // https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27image%27&Query=%27kevin%20durant%27
 static NSString * const kAFBingAPIBaseURLString = @"https://api.datamarket.azure.com/Bing/Search/v1/";
 
-static NSString * const kAFBingAPIPrimaryAccountKey = @"ZvSCALuVF+9e7lMigvG4BOcWgOxoIyKDkIp0mjz8r6o";
+//static NSString * const kAFBingAPIPrimaryAccountKey = @"ZvSCALuVF+9e7lMigvG4BOcWgOxoIyKDkIp0mjz8r6o";
 
+static NSString * const kAFBingAPIPrimaryAccountKey = @"Ne0jBu8PFpCFDZEQFK+CNIC3vzs30ZD+QZRFzVl36CA";
 
 @implementation AFBingAPIClient
 

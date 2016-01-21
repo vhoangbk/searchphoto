@@ -17,6 +17,8 @@ static NSString *const CellIdentifier = @"Cell";
 
 @property (nonatomic, strong) PHCachingImageManager *imageManager;
 
+@property BOOL initialScrollDone;
+
 @end
 
 @implementation AlbumDetailPhotoViewController
@@ -31,10 +33,22 @@ static NSString *const CellIdentifier = @"Cell";
     
     [self.galeryView registerClass:GalleryCell.class forCellWithReuseIdentifier:CellIdentifier];
     [self.galeryView setPagingEnabled:YES];
-    [self.galeryView selectItemAtIndexPath:self.currentIndex animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+    
+    self.initialScrollDone = NO;
     
     self.imageManager = [[PHCachingImageManager alloc] init];
     [self.imageManager stopCachingImagesForAllAssets];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    // If we haven't done the initial scroll, do it once.
+    if (!self.initialScrollDone) {
+        self.initialScrollDone = YES;
+        
+        [self.galeryView scrollToItemAtIndexPath:self.currentIndex
+                                    atScrollPosition:UICollectionViewScrollPositionRight animated:NO];
+    }
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -53,7 +67,7 @@ static NSString *const CellIdentifier = @"Cell";
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 3;
+    return [self.resultCollection count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
