@@ -69,12 +69,12 @@ static NSString *kAlbumDetailPhotoViewController = @"AlbumDetailPhotoViewControl
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    AlbumDetailPhotoViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kAlbumDetailPhotoViewController];
-    
-    viewController.currentIndex = indexPath;
-    viewController.resultCollection = self.fetchPhoto;
-
-    [self presentViewController:viewController animated:YES completion:nil];
+//    AlbumDetailPhotoViewController *viewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:kAlbumDetailPhotoViewController];
+//    
+//    viewController.currentIndex = indexPath;
+//    viewController.resultCollection = self.fetchPhoto;
+//
+//    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout

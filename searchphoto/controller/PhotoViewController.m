@@ -99,9 +99,9 @@
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
-    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
-    [self presentViewController:viewController animated:YES completion:nil];
+//    ImageViewCell *cell = (ImageViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+//    TGRImageViewController *viewController = [[TGRImageViewController alloc] initWithImage:cell.imageView.image];
+//    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 #pragma mark - UIScrollViewDelegate
