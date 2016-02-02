@@ -16,6 +16,7 @@
 		7F6EF1181C3C31A200F342F9 /* ImageViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F6EF1171C3C31A200F342F9 /* ImageViewCell.m */; };
 		7F6FC9C61C41267700344BE7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F6FC9C81C41267700344BE7 /* Localizable.strings */; };
 		7F7450871C455DEC0005A988 /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7450861C455DEC0005A988 /* SearchCollectionViewCell.m */; };
+		7F7910C61C60F88300C72CCE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F7910C51C60F88300C72CCE /* MainViewController.m */; };
 		7FCF0FC01C3ADE7C004CFB2A /* ImageRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */; };
 		7FFDE12E1C3AC27200171DFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE12D1C3AC27200171DFC /* main.m */; };
 		7FFDE1311C3AC27200171DFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE1301C3AC27200171DFC /* AppDelegate.m */; };
@@ -89,9 +90,11 @@
 		7F6FC9CC1C41270F00344BE7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7F7450851C455DEC0005A988 /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCollectionViewCell.h; path = view/SearchCollectionViewCell.h; sourceTree = "<group>"; };
 		7F7450861C455DEC0005A988 /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCollectionViewCell.m; path = view/SearchCollectionViewCell.m; sourceTree = "<group>"; };
+		7F7910C41C60F88300C72CCE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = controller/MainViewController.h; sourceTree = "<group>"; };
+		7F7910C51C60F88300C72CCE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = controller/MainViewController.m; sourceTree = "<group>"; };
 		7FCF0FBE1C3ADE7C004CFB2A /* ImageRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageRecord.h; path = model/ImageRecord.h; sourceTree = "<group>"; };
 		7FCF0FBF1C3ADE7C004CFB2A /* ImageRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageRecord.m; path = model/ImageRecord.m; sourceTree = "<group>"; };
-		7FFDE1291C3AC27200171DFC /* Photo Download.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Download.temp_caseinsensitive_rename.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FFDE1291C3AC27200171DFC /* Photo Download.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Download.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FFDE12D1C3AC27200171DFC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7FFDE12F1C3AC27200171DFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7FFDE1301C3AC27200171DFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -241,7 +244,7 @@
 		7FFDE12A1C3AC27200171DFC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7FFDE1291C3AC27200171DFC /* Photo Download.temp_caseinsensitive_rename.app */,
+				7FFDE1291C3AC27200171DFC /* Photo Download.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -312,6 +315,8 @@
 				88F343561C3CD593002B5833 /* AlbumDetailViewController.m */,
 				7F489C6F1C480F9E0070DCF4 /* AlbumDetailPhotoViewController.h */,
 				7F489C701C480F9E0070DCF4 /* AlbumDetailPhotoViewController.m */,
+				7F7910C41C60F88300C72CCE /* MainViewController.h */,
+				7F7910C51C60F88300C72CCE /* MainViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -485,7 +490,7 @@
 			);
 			name = "Photo Download";
 			productName = searchphoto;
-			productReference = 7FFDE1291C3AC27200171DFC /* Photo Download.temp_caseinsensitive_rename.app */;
+			productReference = 7FFDE1291C3AC27200171DFC /* Photo Download.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -499,6 +504,7 @@
 				TargetAttributes = {
 					7FFDE1281C3AC27200171DFC = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = M4XKHPXK2E;
 					};
 				};
 			};
@@ -577,6 +583,7 @@
 				88275CE91C3B79EE0087C206 /* AFURLConnectionOperation.m in Sources */,
 				88275D031C3B7A0A0087C206 /* UIButton+AFNetworking.m in Sources */,
 				88D021AD1C3E7A6000CEB609 /* UIButton+WebCache.m in Sources */,
+				7F7910C61C60F88300C72CCE /* MainViewController.m in Sources */,
 				880023F41C48963C0055C678 /* AlbumDialog.m in Sources */,
 				88D021A91C3E7A6000CEB609 /* SDWebImageDownloader.m in Sources */,
 				88D021A51C3E7A6000CEB609 /* NSData+ImageContentType.m in Sources */,
@@ -720,14 +727,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Quang Pham (7KU3QL4BY8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Quang Pham (7KU3QL4BY8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
 				INFOPLIST_FILE = searchphoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
-				PRODUCT_NAME = "Photo Download.temp_caseinsensitive_rename";
-				PROVISIONING_PROFILE = "8da013f6-e815-4738-a080-ae924460da5d";
+				PRODUCT_NAME = "Photo Download";
+				PROVISIONING_PROFILE = "d5cf9ec0-4841-4352-8c4f-d16bf3dc00b6";
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -739,14 +746,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Quang Pham (7KU3QL4BY8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Quang Pham (7KU3QL4BY8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Quang Pham (M4XKHPXK2E)";
 				INFOPLIST_FILE = searchphoto/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = google.search.download.photo;
-				PRODUCT_NAME = "Photo Download.temp_caseinsensitive_rename";
-				PROVISIONING_PROFILE = "8da013f6-e815-4738-a080-ae924460da5d";
+				PRODUCT_NAME = "Photo Download";
+				PROVISIONING_PROFILE = "d5cf9ec0-4841-4352-8c4f-d16bf3dc00b6";
 				SWIFT_OBJC_BRIDGING_HEADER = "searchphoto-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
