@@ -21,6 +21,7 @@
 @property PHFetchResult *allPhotosResult;
 @property (nonatomic, strong) PHCachingImageManager *imageManager;
 
+
 @end
 
 @implementation PhotoViewController
@@ -28,6 +29,61 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self requestPhotosAccessUsingPhotoLibrary];
+
+    
+    
+}
+
+- (void)requestPhotosAccessUsingPhotoLibrary {
+    /*
+     There are two ways to prompt the user for permission to access photos. This one will not display the photo picker UI.  See the UIImagePickerController example in this file for the other way to request photo access.
+     */
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if ([self reportPhotosAuthorizationStatus]) {
+                [self initView];
+            }else{
+                NSLog(@"");
+                [self alertViewWithMessage];
+            }
+            
+        });
+    }];
+}
+
+- (BOOL)reportPhotosAuthorizationStatus {
+    /*
+     We can ask the photo library ahead of time what the authorization status is for our bundle and take the appropriate action.
+     */
+    NSString *statusText = nil;
+    if([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusNotDetermined) {
+        statusText = @"UNDETERMINED";
+    }
+    else if([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusRestricted) {
+        statusText = @"RESTRICTED";
+    }
+    else if([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusDenied) {
+        statusText = @"DENIED";
+    }
+    else if([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
+        statusText = @"GRANTED";
+    }
+    
+    if ([statusText isEqualToString:@"GRANTED"]) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
+- (void)alertViewWithMessage {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:@"Photo Download App does not have access to your photo, To enable access go to: iphone setting > privacy > photo > Photo Download" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"") style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void) initView{
     self.photoCollection.dataSource = self;
     self.photoCollection.delegate = self;
     

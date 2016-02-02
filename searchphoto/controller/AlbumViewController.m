@@ -202,7 +202,7 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
   PHFetchResult *assetsFetchResult =
       [PHAsset fetchAssetsInAssetCollection:collection options:nil];
     
-    cell.lbNumber.text = [NSString stringWithFormat:@"%d", [assetsFetchResult count]];
+    cell.lbNumber.text = [NSString stringWithFormat:@"%ld", (unsigned long)[assetsFetchResult count]];
 
   PHAsset *lastAsset = [assetsFetchResult lastObject];
     
