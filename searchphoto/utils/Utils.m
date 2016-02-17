@@ -45,4 +45,13 @@
     return stringFromDate;
 }
 
++ (void) showDoneKeyForKeyboard : (UITextField*)tf{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:tf action:@selector(resignFirstResponder)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 44)];
+    UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    toolbar.items = [NSArray arrayWithObjects: flex, rightButton, nil];
+    tf.inputAccessoryView = toolbar;
+}
+
 @end

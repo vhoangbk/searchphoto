@@ -14,6 +14,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "SearchDetailViewController.h"
 #import "SearchCollectionViewCell.h"
+#import "Utils.h"
 
 static NSString *kImageViewCellIdentity = @"SearchCollectionViewCellIdentity";
 static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControllerIdentity";
@@ -42,6 +43,8 @@ static NSString *kSearchDetailViewControllerIdentity = @"SearchDetailViewControl
     self.tfSearch.delegate = self;
     
     [self loadImagesWithOffset:0];
+    
+    [Utils showDoneKeyForKeyboard:self.tfSearch];
     
 }
 

@@ -72,6 +72,8 @@ static NSString *kSearchViewControllerIdentity = @"SearchViewControllerIdentity"
 //    self.searchBar.delegate = self;
     
 //    self.addDialog = [AddDialog sharedInstance];
+    
+    [Utils showDoneKeyForKeyboard:self.tfSearch];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7FFDE1281C3AC27200171DFC"
-               BuildableName = "Photo Download.temp_caseinsensitive_rename.app"
+               BuildableName = "Photo Download.app"
                BlueprintName = "Photo Download"
                ReferencedContainer = "container:Photo Download.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7FFDE1281C3AC27200171DFC"
-            BuildableName = "Photo Download.temp_caseinsensitive_rename.app"
+            BuildableName = "Photo Download.app"
             BlueprintName = "Photo Download"
             ReferencedContainer = "container:Photo Download.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7FFDE1281C3AC27200171DFC"
-            BuildableName = "Photo Download.temp_caseinsensitive_rename.app"
+            BuildableName = "Photo Download.app"
             BlueprintName = "Photo Download"
             ReferencedContainer = "container:Photo Download.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7FFDE1281C3AC27200171DFC"
-            BuildableName = "Photo Download.temp_caseinsensitive_rename.app"
+            BuildableName = "Photo Download.app"
             BlueprintName = "Photo Download"
             ReferencedContainer = "container:Photo Download.xcodeproj">
          </BuildableReference>

@@ -20,4 +20,6 @@
 
 +(NSString*)date2str:(NSDate*)myNSDateInstance onlyDate:(BOOL)onlyDate;
 
++ (void) showDoneKeyForKeyboard : (UITextField*)tf;
+
 @end
